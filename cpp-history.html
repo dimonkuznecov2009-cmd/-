@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История C++ | От "C with Classes" до C++23 и дальше</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cpp-history.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <h1>⚙️ C++: Полная история создания и развития</h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#start">Начало</a></li>
+                <li><a href="#timeline">Хронология</a></li>
+                <li><a href="#features">Особенности</a></li>
+                <li><a href="#standards">Стандарты</a></li>
+                <li><a href="#libraries">Библиотеки</a></li>
+                <li><a href="#comparison">Сравнение версий</a></li>
+                <li><a href="index.html">← На главную</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Hero секция -->
+        <section class="hero" id="start">
+            <span class="hero-badge" style="background: rgba(0, 89, 156, 0.2); color: var(--accent-cpp);">🔥 40+ лет в индустрии</span>
+            <h1>История C++:<br>от "C with Classes" до C++23</h1>
+            <p>Как язык, созданный для системного программирования, стал королём производительности и незаменимым инструментом для игровых движков, высоконагруженных систем и промышленной автоматизации.</p>
+            <div class="hero-buttons">
+                <a href="#timeline" class="btn btn-primary" style="background: var(--accent-cpp);">📜 Полная хронология</a>
+                <a href="#features" class="btn btn-outline">⚡ Ключевые особенности</a>
+                <a href="index.html" class="btn btn-outline">🏠 Вернуться к сравнению</a>
+            </div>
+        </section>
+
+        <!-- Статистика -->
+        <div class="stats-grid">
+            <div class="stat-big">
+                <div class="number">1979</div>
+                <div class="label">Год начала разработки</div>
+            </div>
+            <div class="stat-big">
+                <div class="number">4.5M+</div>
+                <div class="label">Разработчиков в мире</div>
+            </div>
+            <div class="stat-big">
+                <div class="number">#3</div>
+                <div class="label">В рейтинге TIOBE 2026</div>
+            </div>
+            <div class="stat-big">
+                <div class="number">6</div>
+                <div class="label">Крупных стандартов</div>
+            </div>
+        </div>
+
+        <!-- Рождение C++ -->
+        <section>
+            <h2>📖 Рождение легенды: C with Classes</h2>
+            <div class="creator-block">
+                <div class="creator-text">
+                    <p><strong>Бьярне Страуструп (Bjarne Stroustrup)</strong> — датский программист, работавший в легендарной <strong>Bell Labs</strong> (AT&T). В конце 1970-х годов он работал над задачами моделирования распределённых систем и был недоволен доступными инструментами.</p>
+                    <p>Язык <strong>C</strong> был быстрым и низкоуровневым, но не имел механизмов объектно-ориентированного программирования. Язык <strong>Simula</strong> имел классы, но был слишком медленным. Страуструп решил создать нечто среднее.</p>
+                    <p>В <strong>1979 году</strong> он начал работу над "C with Classes" ("Си с классами"). Первая версия добавляла к C: классы, наследование, строгую типизацию, встраиваемые функции (inline) и проверку аргументов по умолчанию.</p>
+                    <div class="fun-fact" style="margin-top: 16px;">
+                        <strong>💡 Интересный факт:</strong> Изначально язык назывался "C with Classes". В 1983 году его переименовали в C++. Знак "++" — оператор инкремента в языке C, символизирующий эволюционное развитие: "C плюс один шаг вперёд".
+                    </div>
+                </div>
+                <div class="creator-quote">
+                    <p>«Я хотел создать язык, который сочетал бы эффективность и гибкость C с выразительностью и абстракциями Simula».</p>
+                    <p style="margin-top: 16px;">— Бьярне Страуструп</p>
+                    <hr style="margin: 16px 0; border-color: rgba(255,255,255,0.1);">
+                    <p>«C++ был спроектирован так, чтобы дать программисту выбор: платить за то, что он использует, и не платить за то, что не использует. Никаких скрытых накладных расходов».</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Первый коммерческий релиз -->
+        <section>
+            <h2>📦 Первые шаги: 1985 год</h2>
+            <div class="two-columns">
+                <div class="column">
+                    <h3 style="color: var(--accent-cpp);">C++ — первое издание</h3>
+                    <p>В 1985 году вышла <strong>первая коммерческая версия C++</strong>. В том же году Бьярне Страуструп опубликовал легендарную книгу <strong>"The C++ Programming Language"</strong> ("Язык программирования C++"), которая стала настольной для целого поколения разработчиков.</p>
+                    <p>Ключевые возможности первого релиза:</p>
+                    <ul>
+                        <li>Классы и объекты</li>
+                        <li>Наследование (одиночное)</li>
+                        <li>Виртуальные функции (позднее связывание)</li>
+                        <li>Дружественные функции (friend)</li>
+                        <li>Перегрузка функций</li>
+                        <li>Операторы new и delete</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="code-example">
+                        <div class="code-title">// Первый C++ код</div>
+                        <pre><code>#include <iostream>
+
+class Hello {
+public:
+    void say() {
+        std::cout << "Hello, C++!" << std::endl;
+    }
+};
+
+int main() {
+    Hello h;
+    h.say();
+    return 0;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Полная хронология -->
+        <section id="timeline">
+            <h2>📅 Полная хронология развития C++</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1979-1983</div>
+                    <div class="timeline-version">C with Classes</div>
+                    <div class="timeline-title">🔬 Зарождение: "Си с классами"</div>
+                    <p>Бьярне Страуструп в Bell Labs начинает разработку. Добавлены классы, наследование, inline-функции. В 1983 году язык переименован в C++.</p>
+                    <ul class="timeline-details">
+                        <li>Классы и объекты</li>
+                        <li>Наследование (одиночное)</li>
+                        <li>Виртуальные функции</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1985</div>
+                    <div class="timeline-version">C++ 1.0</div>
+                    <div class="timeline-title">📚 Первая коммерческая версия</div>
+                    <p>Выход первой официальной версии и книги "Язык программирования C++". Язык начинает набирать популярность в промышленной разработке.</p>
+                    <ul class="timeline-details">
+                        <li>Первая коммерческая версия</li>
+                        <li>Книга Бьярне Страуструпа</li>
+                        <li>Выход iostream (потоковый ввод/вывод)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1989</div>
+                    <div class="timeline-version">C++ 2.0</div>
+                    <div class="timeline-title">🧬 Множественное наследование</div>
+                    <p>Добавлено множественное наследование (класс может наследовать от нескольких родителей), статические функции-члены, защищённые члены.</p>
+                    <ul class="timeline-details">
+                        <li>Множественное наследование</li>
+                        <li>Статические члены класса</li>
+                        <li>Защищённые (protected) члены</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1990</div>
+                    <div class="timeline-version">The Annotated C++</div>
+                    <div class="timeline-title">📖 Шаблоны (Templates)</div>
+                    <p>Выходит книга "The Annotated C++ Reference Manual" (ARM), которая закладывает основы для стандартизации. Появляются шаблоны (templates) — основа обобщённого программирования.</p>
+                    <ul class="timeline-details">
+                        <li>Шаблоны (templates) — обобщённое программирование</li>
+                        <li>Обработка исключений (exceptions)</li>
+                        <li>Пространства имён (namespaces)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1998</div>
+                    <div class="timeline-version">C++98 (ISO/IEC 14882:1998)</div>
+                    <div class="timeline-title">🌟 Первый международный стандарт</div>
+                    <p><strong>Важнейший момент в истории!</strong> C++ становится международным стандартом ISO. Добавлена STL (Standard Template Library) — стандартная библиотека шаблонов, созданная Александром Степановым.</p>
+                    <ul class="timeline-details">
+                        <li>STL (контейнеры, алгоритмы, итераторы)</li>
+                        <li>RTTI (информация о типах во время выполнения)</li>
+                        <li>dynamic_cast и typeid</li>
+                        <li>Библиотека iostream стандартизирована</li>
+                    </ul>
+                    <div class="fun-fact" style="margin-top: 12px;">
+                        💡 <strong>Значение:</strong> C++98 стал фундаментом, на котором строится современный C++. Многие компании до сих пор используют этот стандарт для легаси-кода.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2003</div>
+                    <div class="timeline-version">C++03</div>
+                    <div class="timeline-title">🔧 Исправление ошибок</div>
+                    <p>Небольшое обновление стандарта C++98. Исправлены ошибки, улучшена совместимость. Фактически — C++98 с патчами.</p>
+                    <ul class="timeline-details">
+                        <li>Исправление ошибок стандарта</li>
+                        <li>Улучшенная совместимость</li>
+                        <li>Без новых фич</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2011</div>
+                    <div class="timeline-version">C++11 (Modern C++)</div>
+                    <div class="timeline-title">⚡ Революция: Modern C++</div>
+                    <p><strong>Самый важный релиз после C++98!</strong> После 13 лет затишья комитет стандартизации выпустил масштабное обновление. C++11 сделал язык современным, удобным и безопасным.</p>
+                    <ul class="timeline-details">
+                        <li>Лямбда-выражения [](){}</li>
+                        <li>Умные указатели (shared_ptr, unique_ptr, weak_ptr)</li>
+                        <li>Семантика перемещения (move semantics)</li>
+                        <li>auto — автоматическое выведение типа</li>
+                        <li>decltype — получение типа выражения</li>
+                        <li>for (auto x : container) — range-based for</li>
+                        <li>nullptr — безопасный нулевой указатель</li>
+                        <li>constexpr — вычисления на этапе компиляции</li>
+                        <li>Статическая проверка (static_assert)</li>
+                        <li>Многопоточность (std::thread, std::mutex)</li>
+                        <li>Библиотека хроно (std::chrono)</li>
+                        <li>Вариативные шаблоны (...)</li>
+                        <li>Списки инициализации</li>
+                    </ul>
+                    <div class="fun-fact" style="margin-top: 12px;">
+                        💡 <strong>Значение:</strong> Именно C++11 называют "Modern C++". Старый стиль кода (сырые указатели, new/delete) ушёл в прошлое. Умные указатели и move-семантика изменили подход к управлению ресурсами.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-version">C++14</div>
+                    <div class="timeline-title">🔧 Улучшения и доработки</div>
+                    <p>Небольшое обновление, расширяющее возможности C++11. Улучшены лямбды и constexpr.</p>
+                    <ul class="timeline-details">
+                        <li>Generic lambdas (auto в параметрах)</li>
+                        <li>Переменные шаблоны</li>
+                        <li>Расширенный constexpr</li>
+                        <li>Библиотека make_unique</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-version">C++17</div>
+                    <div class="timeline-title">📦 Новые возможности</div>
+                    <p>C++17 принёс множество полезных функций, упрощающих повседневное программирование. Файловые системы, параллельные алгоритмы, структурированные привязки.</p>
+                    <ul class="timeline-details">
+                        <li>std::optional — необязательные значения</li>
+                        <li>std::variant — типобезопасное объединение</li>
+                        <li>std::any — хранение любого типа</li>
+                        <li>std::filesystem — работа с файловой системой</li>
+                        <li>Структурированные привязки auto [a,b] = ...</li>
+                        <li>if constexpr — условная компиляция</li>
+                        <li>Параллельные алгоритмы STL</li>
+                        <li>inline переменные</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-version">C++20</div>
+                    <div class="timeline-title">🚀 Крупнейшее обновление после C++11</div>
+                    <p>Огромный релиз, добавляющий концепты, модули, корутины и ranges. Язык становится ещё мощнее и удобнее.</p>
+                    <ul class="timeline-details">
+                        <li>Концепты (concepts) — требования к типам шаблонов</li>
+                        <li>Модули (modules) — ускорение компиляции, замена #include</li>
+                        <li>Корутины (coroutines) — асинхронное программирование</li>
+                        <li>Ranges библиотека — работа с последовательностями</li>
+                        <li>std::span — немедленно владеющий вид на массив</li>
+                        <li>std::format — как Python f-строки</li>
+                        <li>Трёхстороннее сравнение (<=> operator)</li>
+                        <li>constexpr для std::vector и std::string</li>
+                    </ul>
+                    <div class="fun-fact" style="margin-top: 12px;">
+                        💡 <strong>Значение:</strong> Концепты наконец-то позволяют писать понятные сообщения об ошибках для шаблонов. Модули могут ускорить компиляцию в 10-20 раз. Это самый значительный релиз за последние 10 лет.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-version">C++23</div>
+                    <div class="timeline-title">🔧 Эволюция, а не революция</div>
+                    <p>C++23 — небольшое обновление, дополняющее возможности C++20. Улучшена стандартная библиотека.</p>
+                    <ul class="timeline-details">
+                        <li>std::expected — обработка ошибок без исключений</li>
+                        <li>std::mdspan — многомерные массивы</li>
+                        <li>std::print — упрощённый вывод (как Python print)</li>
+                        <li>this в лямбдах ([=, this])</li>
+                        <li>std::string::contains() — проверка подстроки</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2026 (планируется)</div>
+                    <div class="timeline-version">C++26</div>
+                    <div class="timeline-title">🔮 Будущее C++</div>
+                    <p>Ожидаемые нововведения в следующем стандарте.</p>
+                    <ul class="timeline-details">
+                        <li>Рефлексия (compile-time reflection)</li>
+                        <li>Улучшенная поддержка сетей (networking TS)</li>
+                        <li>std::execution — новый подход к параллелизму</li>
+                        <li>Улучшения для корутин</li>
+                        <li>Расширение возможностей constexpr</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ключевые особенности -->
+        <section id="features">
+            <h2>⚡ Ключевые особенности C++</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Низкоуровневое управление памятью</h3>
+                    <p>Полный контроль над памятью через new/delete, умные указатели, размещение в куче и стеке. Нет скрытых накладных расходов.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Высочайшая производительность</h3>
+                    <p>Компилируется напрямую в машинный код. Оптимизации на этапе компиляции. Равен по скорости языку C, но с более высокоуровневыми абстракциями.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Многопарадигмальность</h3>
+                    <p>Процедурное, ООП, обобщённое (шаблоны), функциональное (лямбды), метапрограммирование. Выбирайте стиль под задачу.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Статическая типизация</h3>
+                    <p>Ошибки типов отлавливаются на этапе компиляции. Строгая проверка типов. Вывод типов (auto) облегчает жизнь.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>RAII (Resource Acquisition Is Initialization)</h3>
+                    <p>Главная идиома управления ресурсами. Ресурс захватывается в конструкторе, освобождается в деструкторе. Безопасно и автоматически.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧵</div>
+                    <h3>Встроенная многопоточность</h3>
+                    <p>std::thread, std::async, std::mutex, атомарные операции. Полноценная поддержка параллелизма и конкурентности.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Шаблоны (Templates)</h3>
+                    <p>Обобщённое программирование. Код, работающий с любыми типами. Мощное метапрограммирование. Концепты (C++20) для лучших сообщений об ошибках.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔁</div>
+                    <h3>Обратная совместимость с C</h3>
+                    <p>Практически любой C-код компилируется как C++. Можно использовать C-библиотеки напрямую.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Стандарты C++ в таблице -->
+        <section id="standards">
+            <h2>📊 Эволюция стандартов C++</h2>
+            <p class="section-subtitle">От C++98 до C++23 — более 25 лет развития</p>
+            <table class="standards-table">
+                <thead>
+                    <tr>
+                        <th>Стандарт</th>
+                        <th>Год</th>
+                        <th>Ключевые нововведения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>C++98</strong></td><td>1998</td><td>Первый ISO стандарт, STL, RTTI</td></tr>
+                    <tr><td><strong>C++03</strong></td><td>2003</td><td>Исправление ошибок C++98</td></tr>
+                    <tr><td><strong>C++11</strong></td><td>2011</td><td>Лямбды, умные указатели, move-семантика, auto, многопоточность, constexpr</td></tr>
+                    <tr><td><strong>C++14</strong></td><td>2014</td><td>Generic лямбды, расширенный constexpr</td></tr>
+                    <tr><td><strong>C++17</strong></td><td>2017</td><td>std::optional, std::variant, std::filesystem, структурированные привязки</td></tr>
+                    <tr><td><strong>C++20</strong></td><td>2020</td><td>Концепты, модули, корутины, ranges, std::format</td></tr>
+                    <tr><td><strong>C++23</strong></td><td>2023</td><td>std::expected, std::print, std::mdspan</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Где используется C++ -->
+        <section id="libraries">
+            <h2>🏭 Где используется C++</h2>
+            <div class="usage-grid">
+                <div class="usage-card">
+                    <div class="usage-icon">🎮</div>
+                    <h3>Игровые движки</h3>
+                    <p>Unreal Engine (C++), Unity (C++ ядро), CryEngine, Source. C++ — стандарт в геймдеве.</p>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon">🖥️</div>
+                    <h3>Операционные системы</h3>
+                    <p>Windows (ядро), macOS, Linux (драйверы), iOS, Android (низкоуровневые части)</p>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon">💾</div>
+                    <h3>Базы данных</h3>
+                    <p>MySQL, PostgreSQL, MongoDB, Redis, ClickHouse — ядра на C++</p>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon">🚗</div>
+                    <h3>Автомобильная промышленность</h3>
+                    <p>ECU, автопилоты, мультимедиа системы. C++ в Tesla, BMW, Mercedes</p>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon">📊</div>
+                    <h3>Финансовые технологии</h3>
+                    <p>HFT (высокочастотная торговля), банковские системы. Каждая микросекунда на счету</p>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon">🏭</div>
+                    <h3>Промышленная автоматизация</h3>
+                    <p>Системы реального времени, ЧПУ станки, робототехника. Особенно актуально для Свердловской области!</p>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon">🌐</div>
+                    <h3>Браузеры</h3>
+                    <p>Chrome (Blink/V8), Firefox (Gecko), Safari (WebKit) — все движки на C++</p>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon">☁️</div>
+                    <h3>Высоконагруженные системы</h3>
+                    <p>Google (поиск), Facebook (новостная лента), Amazon (рекомендации)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Сравнение с другими языками -->
+        <section id="comparison">
+            <h2>🔄 C++ vs Python vs JavaScript</h2>
+            <p class="section-subtitle">Почему C++ выбирают для систем, где важна производительность</p>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Характеристика</th>
+                        <th>C++</th>
+                        <th>Python</th>
+                        <th>JavaScript</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Скорость выполнения</td><td class="highlight-cpp">🔥 Очень высокая</td><td>🐢 Низкая</td><td>🟡 Средняя</td></tr>
+                    <tr><td>Типизация</td><td>Статическая (на этапе компиляции)</td><td>Динамическая (во время выполнения)</td><td>Динамическая, слабая</td></tr>
+                    <tr><td>Управление памятью</td><td>Ручное (new/delete) или умные указатели</td><td>Автоматическое (GC)</td><td>Автоматическое (GC)</td></tr>
+                    <tr><td>Компиляция</td><td>В машинный код (AOT)</td><td>Интерпретируемый</td><td>JIT-компиляция</td></tr>
+                    <tr><td>Скорость разработки</td><td>Медленная</td><td>Быстрая</td><td>Быстрая</td></tr>
+                    <tr><td>Порог входа</td><td>Высокий</td><td>Низкий</td><td>Средний</td></tr>
+                    <tr><td>Главная область</td><td>Игры, ОС, HPC, встраиваемые системы</td><td>Data Science, AI, автоматизация</td><td>Веб-разработка, UI</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Умные указатели -->
+        <section>
+            <h2>🛡️ Умные указатели: как C++ решает проблемы с памятью</h2>
+            <p class="section-subtitle">Unique_ptr, Shared_ptr, Weak_ptr — безопасное управление ресурсами</p>
+            <div class="smart-pointers-grid">
+                <div class="smart-card">
+                    <div class="smart-title">std::unique_ptr</div>
+                    <div class="smart-desc">Эксклюзивное владение. Нельзя скопировать, только переместить. Замена сырым указателям.</div>
+                    <code>auto ptr = std::make_unique&lt;int&gt;(42);</code>
+                </div>
+                <div class="smart-card">
+                    <div class="smart-title">std::shared_ptr</div>
+                    <div class="smart-desc">Разделяемое владение. Счётчик ссылок. Удаляется, когда счётчик == 0.</div>
+                    <code>auto ptr = std::make_shared&lt;int&gt;(42);</code>
+                </div>
+                <div class="smart-card">
+                    <div class="smart-title">std::weak_ptr</div>
+                    <div class="smart-desc">Слабая ссылка на shared_ptr. Решает проблему циклических ссылок.</div>
+                    <code>std::weak_ptr&lt;int&gt; weak = shared;</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- RAII -->
+        <section>
+            <div class="raii-block">
+                <h3 style="color: var(--accent-cpp); margin-top: 0;">🔒 RAII — главная идиома C++</h3>
+                <p><strong>Resource Acquisition Is Initialization</strong> — получение ресурса есть инициализация. Ресурс (память, файл, мьютекс) захватывается в конструкторе, освобождается в деструкторе. Это гарантирует отсутствие утечек даже при исключениях.</p>
+                <div class="code-example" style="margin-top: 16px;">
+                    <pre><code>class FileHandle {
+    FILE* f;
+public:
+    FileHandle(const char* name) : f(fopen(name, "r")) {}
+    ~FileHandle() { if(f) fclose(f); } // Автоматическое закрытие!
+    // Запрет копирования, разрешение перемещения...
+};</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные компиляторы -->
+        <section>
+            <h2>🔧 Популярные компиляторы C++</h2>
+            <div class="compilers-grid">
+                <div class="compiler-card">
+                    <div class="compiler-name">GCC</div>
+                    <div class="compiler-desc">GNU Compiler Collection — стандарт в Linux/Unix. Лучшая совместимость с C++20/23.</div>
+                </div>
+                <div class="compiler-card">
+                    <div class="compiler-name">Clang</div>
+                    <div class="compiler-desc">LLVM. Отличные сообщения об ошибках. macOS по умолчанию.</div>
+                </div>
+                <div class="compiler-card">
+                    <div class="compiler-name">MSVC</div>
+                    <div class="compiler-desc">Microsoft Visual C++ — стандарт в Windows. Отличная интеграция с Visual Studio.</div>
+                </div>
+                <div class="compiler-card">
+                    <div class="compiler-name">Intel C++</div>
+                    <div class="compiler-desc">Оптимизации для Intel CPU. Используется в HPC.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Интересные факты -->
+        <section>
+            <h2>💡 Интересные факты о C++</h2>
+            <div class="fun-facts-grid">
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">📖</div>
+                    <h3>Самая большая книга</h3>
+                    <p>Стандарт C++20 насчитывает более 1800 страниц. Это один из самых сложных и объёмных стандартов языков программирования.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">🎮</div>
+                    <h3>Король игровых движков</h3>
+                    <p>Unreal Engine 5 написан на C++. Цикл генерации кадра должен укладываться в 16 мс (60 FPS). Только C++ обеспечивает такую скорость.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">🚀</div>
+                    <h3>NASA и C++</h3>
+                    <p>Марсоход Perseverance использует C++ для критически важных систем. Ошибки в коде могут стоить миллиарды долларов.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">🐍</div>
+                    <h3>Python и C++</h3>
+                    <p>Интерпретатор CPython (основная реализация Python) написан на C. Многие библиотеки (NumPy, Pandas) используют C++ для производительности.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">📈</div>
+                    <h3>TIOBE Index</h3>
+                    <p>C++ стабильно входит в топ-4 языков программирования с 1985 года. Редкий язык сохраняет такую популярность десятилетиями.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">📅</div>
+                    <h3>Трёхлетний цикл</h3>
+                    <p>Начиная с C++11, стандарт выходит каждые 3 года: 11, 14, 17, 20, 23, 26. Предсказуемое развитие.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Кнопка возврата -->
+        <div style="text-align: center; margin: 40px 0 60px;">
+            <a href="index.html" class="btn btn-primary" style="background: var(--accent-cpp);">← Вернуться к сравнению Python, JS, C++</a>
+            <a href="#start" class="btn btn-outline" style="margin-left: 16px;">⬆ Наверх</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="python-history.html">История Python</a>
+            <a href="js-history.html">История JavaScript</a>
+            <a href="cpp-history.html">История C++</a>
+        </div>
+        <p>История C++ и его развитие. Данные основаны на документации ISO, книге Бьярне Страуструпа "The C++ Programming Language" и исторических статьях.</p>
+        <p>© 2026 — Гид по выбору языка программирования. Проект создан для помощи начинающим разработчикам.</p>
+    </div>
+</footer>
+
+</body>
+</html>

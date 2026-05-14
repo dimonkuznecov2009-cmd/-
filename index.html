@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Гид по выбору: Python, JavaScript, C++</title>
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <h1>🚀 Выбери свой путь: Python, JavaScript или C++</h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#start">С чего начать?</a></li>
+                <li><a href="#python-card">Python</a></li>
+                <li><a href="#js-card">JavaScript</a></li>
+                <li><a href="#cpp-card">C++</a></li>
+                <li><a href="#recommend">Рекомендации</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero секция -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h1>Не знаешь, с какого языка начать? Мы сравнили Python, JavaScript и C++, чтобы ты не бросил программирование после первой недели.</h1>
+            <p>Ошибочный выбор языка — главная причина разочарования новичков. Узнай, какой язык подходит именно твоей цели: сайты, данные, игры или автоматизация.</p>
+            <div class="hero-buttons">
+                <a href="#code-experiment" class="btn btn-primary">👉 К сравнению языков</a>
+                <a href="#recommend" class="btn btn-outline">🎯 Подобрать язык за 30 секунд</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Три карточки языков -->
+    <section class="cards-section" id="lang-cards">
+        <div class="container">
+            <h2 style="text-align:center">Выбери свой вектор</h2>
+            <div class="cards-grid">
+                <!-- Python карточка -->
+                <div class="lang-card card-python" id="python-card">
+                    <div class="card-icon">🐍</div>
+                    <h3 style="color: var(--accent-python);">Python</h3>
+                    <div class="accent-word">Универсальный старт и Данные</div>
+                    <p>Тем, кто хочет быстро увидеть результат, не закапываясь в память. Идеален для аналитики, автоматизации, ИИ.</p>
+                    <div class="meta-info"><span>🟢 Порог входа: Низкий</span><span>💰 от 50 000 – 80 000 ₽</span></div>
+                    <div>💡 Первое приложение: Калькулятор или анализатор цен</div>
+                    <a href="python-history.html" class="card-btn">Подробнее про Python →</a>
+                </div>
+                <!-- JavaScript карточка -->
+                <div class="lang-card card-js" id="js-card">
+                    <div class="card-icon">🌐</div>
+                    <h3 style="color: var(--accent-js); text-shadow: 0 0 2px black;">JavaScript</h3>
+                    <div class="accent-word">Веб и Вездесущность</div>
+                    <p>Тому, кто хочет сразу видеть результат в браузере, создавать сайты и серверы.</p>
+                    <div class="meta-info"><span>🟡 Порог входа: Средний</span><span>💰 от 50 000 – 80 000 ₽</span></div>
+                    <div>🎮 Первое приложение: Игра "Угадай число" на странице</div>
+                    <a href="js-history.html" class="card-btn">Подробнее про JavaScript →</a>
+                </div>
+                <!-- C++ карточка -->
+                <div class="lang-card card-cpp" id="cpp-card">
+                    <div class="card-icon">⚙️</div>
+                    <h3 style="color: var(--accent-cpp);">C++</h3>
+                    <div class="accent-word">Производительность и Заводы</div>
+                    <p>Тем, кто хочет понять работу компьютера. Игры, системы реального времени, промышленность.</p>
+                    <div class="meta-info"><span>🔴 Порог входа: Высокий</span><span>💰 от 60 000 – 90 000 ₽</span></div>
+                    <div>🧮 Первое приложение: Консольный инженерный калькулятор</div>
+                    <a href="cpp-history.html" class="card-btn">Подробнее про C++ →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок с экспериментом (сравнение кода) -->
+    <section class="container" id="code-experiment">
+        <div class="code-compare">
+            <h2 style="text-align:center;">А внутри всё похоже? Давай проверим.</h2>
+            <p style="text-align:center; margin-bottom: 20px;">Мы написали одну программу (решение квадратного уравнения) на трёх языках. Формула — одинаковая, правила записи — чуть разные.</p>
+            <div class="code-grid">
+                <div class="code-block python-code">
+                    <div style="font-weight: bold; margin-bottom: 8px;">🐍 Python</div>
+                    <pre><code>x1 = (-b + math.sqrt(d)) / (2*a)
+x2 = (-b - math.sqrt(d)) / (2*a)</code></pre>
+                </div>
+                <div class="code-block js-code">
+                    <div style="font-weight: bold; margin-bottom: 8px;">📜 JavaScript</div>
+                    <pre><code>let x1 = (-b + Math.sqrt(d)) / (2*a);
+let x2 = (-b - Math.sqrt(d)) / (2*a);</code></pre>
+                </div>
+                <div class="code-block cpp-code">
+                    <div style="font-weight: bold; margin-bottom: 8px;">⚙️ C++</div>
+                    <pre><code>double x1 = (-b + sqrt(d)) / (2*a);
+double x2 = (-b - sqrt(d)) / (2*a);</code></pre>
+                </div>
+            </div>
+            <div class="conclusion">
+                💡 Новичку не нужно учить "один правильный язык". Достаточно понять основы на любом из них. Меняется лишь форма записи, а не суть.
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок "А что учат в вузах?" -->
+    <section class="container">
+        <h2>🎓 А что учат в вузах? (<a href="msu.html">МГУ </a>, <a href="itmo.html">ИТМО</a>, <a href="hse.html"> ВШЭ</a>, <a href="mipt.html">МФТИ</a>, <a href="urfu.html">УрФУ</a>)</h2>
+        <div class="universities-grid">
+            <div class="uni-card">📚 Информатика / Системное программирование → <strong>C++ (фундамент)</strong></div>
+            <div class="uni-card">🛠️ Программная инженерия → <strong>C++ / Java / Python + JavaScript</strong></div>
+            <div class="uni-card">📊 Прикладная информатика / Анализ данных → <strong>Python + SQL</strong></div>
+            <div class="uni-card">🌍 Веб-разработка → <strong>JavaScript (TypeScript)</strong></div>
+        </div>
+    </section>
+
+    <!-- Блок "Навигатор выбора" (рекомендации) -->
+    <section class="container" id="recommend">
+        <h2>🧭 Так какой язык учить первым? — Зависит от цели.</h2>
+        <div class="recommend-list">
+            <div class="rec-item" style="border-left-color: #F7DF1E;">
+                🖥️ <strong>Хочешь делать сайты и приложения с интерфейсом?</strong> → Начинай с JavaScript. Мгновенная обратная связь в браузере.
+            </div>
+            <div class="rec-item" style="border-left-color: #3776AB;">
+                🤖 <strong>Хочешь работать с данными, нейросетями, автоматизацией?</strong> → Бери Python. Экосистема и порог входа — лучшие.
+            </div>
+            <div class="rec-item" style="border-left-color: #00599C;">
+                🎮 <strong>Хочешь понять игры и ОС? Готов к сложностям?</strong> → Иди в C++. Станешь инженером.
+            </div>
+            <div class="rec-item" style="border-left-color: #94a3b8;">
+                🤔 <strong>Не знаешь, чего хочешь?</strong> → Начни с Python. Он не отобьёт желание.
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок "С чего начать прямо сейчас" (практические шаги) -->
+    <section class="container" id="start">
+        <h2>🚀 Хватит теории. Первые шаги — бесплатно и прямо сейчас.</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <h4 style="color: var(--accent-python);">🐍 Python</h4>
+                <ul>
+                    <li>📥 Шаг 1: Скачай Thonny или <a href="https://www.jetbrains.com/pycharm/download/?ysclid=mp47slo797520696457&section=windows">PyCharm Community</a></li>
+                    <li>📘 Шаг 2: Пройди урок на Stepik.org (15 минут)</li>
+                    <li>🧾 Шаг 3: <a href="tip-calculator.html">Первый проект — Калькулятор чаевых</a></li>
+                </ul>
+            </div>
+            <div class="step-card">
+                <h4 style="color: var(--accent-js);">🌐 JavaScript</h4>
+                <ul>
+                    <li>🔍 Шаг 1: Открой Chrome, нажми F12 → Console</li>
+                    <li>💬 Шаг 2: Напиши console.log("Привет, мир!")</li>
+                    <li>🎲 Шаг 3: <a href="guess-number-js.html">Первый проект — Игра "Угадай число</a>"</li>
+                </ul>
+            </div>
+            <div class="step-card">
+                <h4 style="color: var(--accent-cpp);">⚙️ C++</h4>
+                <ul>
+                    <li>🌐 Шаг 1: Зайди на <a href="https://replit.com/">replit.com</a> (шаблон C++)</li>
+                    <li>📖 Шаг 2: Разбери Hello World с #include <iostream></li>
+                    <li>🔁 Шаг 3: <a href="cpp-switch-calculator.html">Первый проект — Калькулятор с switch</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Футер -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="#hero">Главная</a>
+            <a href="#lang-cards">Языки</a>
+            <a href="#code-experiment">Сравнение кода</a>
+            <a href="#recommend">Рекомендации</a>
+            <a href="#start">Первые шаги</a>
+        </div>
+        <p>📊 Исследование на основе анализа вакансий Свердловской области и учебных программ ведущих вузов</p>
+        <p>© 2026 — Гид по выбору языка программирования</p>
+    </div>
+</footer>
+
+<!-- Подключаем JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор на C++ (switch) | Урок для начинающих</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cpp-switch-calculator.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <h1>⚙️ Калькулятор на C++ с оператором switch</h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#intro">Введение</a></li>
+                <li><a href="#code">Код</a></li>
+                <li><a href="#explanation">Объяснение</a></li>
+                <li><a href="#exercises">Задания</a></li>
+                <li><a href="index.html">← На главную</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Hero секция -->
+        <section class="hero" id="intro">
+            <span class="hero-badge" style="background: rgba(0, 89, 156, 0.2); color: #00599C;">🎓 Первый проект на C++</span>
+            <h1>Как сделать калькулятор на C++<br>с оператором switch</h1>
+            <p>Калькулятор на C++ — идеальный первый проект для изучения основ языка. Вы научитесь работать с переменными, вводом/выводом, условными операторами, а главное — освоите мощную конструкцию <strong>switch-case</strong>, которая делает код чистым и понятным.</p>
+            <div class="hero-buttons">
+                <a href="#code" class="btn btn-primary" style="background: #00599C;">📝 Посмотреть код</a>
+                <a href="#demo" class="btn btn-outline">🎮 Интерактивная демо</a>
+                <a href="#exercises" class="btn btn-outline">📚 Задания</a>
+            </div>
+        </section>
+
+        <!-- Что вы научитесь делать -->
+        <section>
+            <h2>📚 Что вы научитесь делать</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🔢</div>
+                    <h3>Работать с переменными</h3>
+                    <p>Объявлять и использовать переменные типов int, double, char</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⌨️</div>
+                    <h3>Ввод и вывод данных</h3>
+                    <p>Использовать cin и cout для взаимодействия с пользователем</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎛️</div>
+                    <h3>Оператор switch-case</h3>
+                    <p>Создавать меню и обрабатывать выбор пользователя</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚠️</div>
+                    <h3>Обработка ошибок</h3>
+                    <p>Проверять деление на ноль и корректность ввода</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3>Циклы</h3>
+                    <p>Использовать do-while для повторения вычислений</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📐</div>
+                    <h3>Математические операции</h3>
+                    <p>Выполнять сложение, вычитание, умножение, деление, возведение в степень</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Живая демо-версия (на JavaScript для браузера) -->
+        <section id="demo">
+            <h2>🎮 Интерактивная демо-версия</h2>
+            <p class="section-subtitle">Попробуйте калькулятор прямо в браузере (логика полностью повторяет C++ версию)</p>
+            
+            <div class="demo-container">
+                <div class="calculator-demo">
+                    <div class="calc-display" id="calcDisplay">
+                        <div class="calc-history" id="calcHistory">Готов к работе</div>
+                        <div class="calc-result" id="calcResult">0</div>
+                    </div>
+                    <div class="calc-keys">
+                        <div class="calc-row">
+                            <button class="calc-key" data-action="number" data-value="7">7</button>
+                            <button class="calc-key" data-action="number" data-value="8">8</button>
+                            <button class="calc-key" data-action="number" data-value="9">9</button>
+                            <button class="calc-key operator" data-action="operator" data-value="/">÷</button>
+                        </div>
+                        <div class="calc-row">
+                            <button class="calc-key" data-action="number" data-value="4">4</button>
+                            <button class="calc-key" data-action="number" data-value="5">5</button>
+                            <button class="calc-key" data-action="number" data-value="6">6</button>
+                            <button class="calc-key operator" data-action="operator" data-value="*">×</button>
+                        </div>
+                        <div class="calc-row">
+                            <button class="calc-key" data-action="number" data-value="1">1</button>
+                            <button class="calc-key" data-action="number" data-value="2">2</button>
+                            <button class="calc-key" data-action="number" data-value="3">3</button>
+                            <button class="calc-key operator" data-action="operator" data-value="-">−</button>
+                        </div>
+                        <div class="calc-row">
+                            <button class="calc-key" data-action="number" data-value="0">0</button>
+                            <button class="calc-key" data-action="decimal" data-value=".">.</button>
+                            <button class="calc-key" data-action="clear">C</button>
+                            <button class="calc-key operator" data-action="operator" data-value="+">+</button>
+                        </div>
+                        <div class="calc-row">
+                            <button class="calc-key equal" data-action="equals" style="background: #00599C; width: 100%;">=</button>
+                        </div>
+                    </div>
+                    <div class="demo-note">
+                        <p>💡 <strong>Это демо-версия на JavaScript</strong>, но она полностью повторяет логику C++ калькулятора. Ниже вы найдёте исходный код на C++, который можно скомпилировать и запустить на своём компьютере.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Полный код программы -->
+        <section id="code">
+            <h2>📝 Полный код программы на C++</h2>
+            
+            <div class="code-block-wrapper">
+                <div class="code-header">
+                    <span class="code-title">📄 calculator.cpp</span>
+                    <button class="copy-btn" id="copy-all-code">📋 Копировать код</button>
+                </div>
+                <div class="code-block cpp-code-block">
+                    <pre id="full-code"><code>// Калькулятор на C++ с оператором switch
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &lt;limits&gt;
+
+using namespace std;
+
+// Функция для очистки потока ввода после ошибки
+void clearInput() {
+    cin.clear();
+    cin.ignore(numeric_limits&lt;streamsize&gt;::max(), '\n');
+}
+
+// Функция для получения числа с проверкой
+double getNumber(const string& prompt) {
+    double num;
+    while (true) {
+        cout &lt;&lt; prompt;
+        cin &gt;&gt; num;
+        
+        if (cin.fail()) {
+            cout &lt;&lt; "Ошибка! Пожалуйста, введите число.\n";
+            clearInput();
+        } else {
+            break;
+        }
+    }
+    return num;
+}
+
+// Функция для получения оператора с проверкой
+char getOperator() {
+    char op;
+    while (true) {
+        cout &lt;&lt; "Выберите операцию (+, -, *, /, ^, s - квадрат, k - корень): ";
+        cin &gt;&gt; op;
+        
+        if (op == '+' || op == '-' || op == '*' || op == '/' || 
+            op == '^' || op == 's' || op == 'k') {
+            break;
+        } else {
+            cout &lt;&lt; "Неверный оператор! Попробуйте снова.\n";
+        }
+    }
+    return op;
+}
+
+// Функция для выполнения вычислений
+void calculate() {
+    cout &lt;&lt; "\n========================================\n";
+    cout &lt;&lt; "       ИНЖЕНЕРНЫЙ КАЛЬКУЛЯТОР\n";
+    cout &lt;&lt; "========================================\n\n";
+    
+    char choice;
+    
+    do {
+        // Получаем первый операнд
+        double a = getNumber("Введите первое число: ");
+        
+        // Получаем оператор
+        char op = getOperator();
+        
+        double b = 0;
+        double result = 0;
+        bool valid = true;
+        
+        // Унарные операции (квадрат, корень) не требуют второго числа
+        if (op == 's' || op == 'k') {
+            switch (op) {
+                case 's':
+                    result = a * a;
+                    cout &lt;&lt; "\n" &lt;&lt; a &lt;&lt; "² = " &lt;&lt; result &lt;&lt; endl;
+                    break;
+                case 'k':
+                    if (a &lt; 0) {
+                        cout &lt;&lt; "\nОшибка! Нельзя извлечь корень из отрицательного числа.\n";
+                        valid = false;
+                    } else {
+                        result = sqrt(a);
+                        cout &lt;&lt; "\n√" &lt;&lt; a &lt;&lt; " = " &lt;&lt; result &lt;&lt; endl;
+                    }
+                    break;
+            }
+        } else {
+            // Бинарные операции требуют второго числа
+            b = getNumber("Введите второе число: ");
+            
+            switch (op) {
+                case '+':
+                    result = a + b;
+                    break;
+                case '-':
+                    result = a - b;
+                    break;
+                case '*':
+                    result = a * b;
+                    break;
+                case '/':
+                    if (b == 0) {
+                        cout &lt;&lt; "\nОшибка! Деление на ноль невозможно.\n";
+                        valid = false;
+                    } else {
+                        result = a / b;
+                    }
+                    break;
+                case '^':
+                    result = pow(a, b);
+                    break;
+                default:
+                    cout &lt;&lt; "\nНеизвестная операция!\n";
+                    valid = false;
+            }
+            
+            if (valid) {
+                cout &lt;&lt; "\n" &lt;&lt; a &lt;&lt; " " &lt;&lt; op &lt;&lt; " " &lt;&lt; b &lt;&lt; " = " &lt;&lt; result &lt;&lt; endl;
+            }
+        }
+        
+        if (valid && op != 's' && op != 'k') {
+            cout &lt;&lt; "\nРезультат: " &lt;&lt; result &lt;&lt; endl;
+        }
+        
+        cout &lt;&lt; "\n----------------------------------------\n";
+        cout &lt;&lt; "Продолжить вычисления? (y/n): ";
+        cin &gt;&gt; choice;
+        cout &lt;&lt; endl;
+        
+    } while (choice == 'y' || choice == 'Y');
+    
+    cout &lt;&lt; "\nСпасибо за использование калькулятора!\n";
+}
+
+int main() {
+    calculate();
+    return 0;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Разбор кода по шагам -->
+        <section id="explanation">
+            <h2>🔍 Разбор кода шаг за шагом</h2>
+            
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    <h3>Подключение библиотек и пространство имён</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &lt;limits&gt;
+
+using namespace std;</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>#include &lt;iostream&gt;</code> — для ввода/вывода (cin, cout)</li>
+                        <li><code>#include &lt;cmath&gt;</code> — для математических функций (sqrt, pow)</li>
+                        <li><code>#include &lt;limits&gt;</code> — для работы с лимитами типов (нужно для очистки ввода)</li>
+                        <li><code>using namespace std</code> — позволяет не писать std:: перед cin, cout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <h3>Функция очистки потока ввода</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>void clearInput() {
+    cin.clear();  // Сбрасываем флаги ошибок
+    cin.ignore(numeric_limits&lt;streamsize&gt;::max(), '\n'); // Очищаем буфер
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li>Если пользователь ввёл не число, <code>cin.fail()</code> становится true</li>
+                        <li><code>cin.clear()</code> — сбрасывает состояние ошибки</li>
+                        <li><code>cin.ignore(...)</code> — удаляет неправильные данные из буфера ввода</li>
+                        <li>Это позволяет программе запросить ввод снова без зависания</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <h3>Функция получения числа с проверкой</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>double getNumber(const string& prompt) {
+    double num;
+    while (true) {
+        cout &lt;&lt; prompt;
+        cin &gt;&gt; num;
+        
+        if (cin.fail()) {
+            cout &lt;&lt; "Ошибка! Пожалуйста, введите число.\n";
+            clearInput();
+        } else {
+            break;
+        }
+    }
+    return num;
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>while (true)</code> — бесконечный цикл, пока не будет введено корректное число</li>
+                        <li><code>cin.fail()</code> — проверяет, произошла ли ошибка ввода</li>
+                        <li>При ошибке — выводим сообщение и очищаем ввод</li>
+                        <li>При успехе — выходим из цикла и возвращаем число</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <h3>Функция выбора оператора (основной switch)</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>switch (op) {
+    case '+':
+        result = a + b;
+        break;
+    case '-':
+        result = a - b;
+        break;
+    case '*':
+        result = a * b;
+        break;
+    case '/':
+        if (b == 0) {
+            cout &lt;&lt; "Ошибка! Деление на ноль!\n";
+            valid = false;
+        } else {
+            result = a / b;
+        }
+        break;
+    case '^':
+        result = pow(a, b);
+        break;
+    default:
+        cout &lt;&lt; "Неизвестная операция!\n";
+        valid = false;
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>switch (op)</code> — выбирает блок кода в зависимости от значения переменной op</li>
+                        <li><code>case '+'</code> — если op равно '+', выполняется сложение</li>
+                        <li><code>break</code> — выходит из switch, без него выполнение "провалится" в следующий case</li>
+                        <li><code>default</code> — выполняется, если ни один case не подошёл</li>
+                        <li>Для деления — дополнительная проверка на ноль</li>
+                        <li><code>pow(a, b)</code> — возведение a в степень b (требует #include &lt;cmath&gt;)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    <h3>Унарные операции: квадрат и корень</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>if (op == 's' || op == 'k') {
+    switch (op) {
+        case 's':
+            result = a * a;
+            cout &lt;&lt; a &lt;&lt; "² = " &lt;&lt; result &lt;&lt; endl;
+            break;
+        case 'k':
+            if (a &lt; 0) {
+                cout &lt;&lt; "Ошибка! Корень из отрицательного числа!\n";
+                valid = false;
+            } else {
+                result = sqrt(a);
+                cout &lt;&lt; "√" &lt;&lt; a &lt;&lt; " = " &lt;&lt; result &lt;&lt; endl;
+            }
+            break;
+    }
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li>Унарные операции (квадрат 's' и корень 'k') не требуют второго числа</li>
+                        <li><code>a * a</code> — возведение в квадрат (можно также <code>pow(a, 2)</code>)</li>
+                        <li><code>sqrt(a)</code> — квадратный корень (только для неотрицательных чисел)</li>
+                        <li>Для корня проверяем, что число не отрицательное</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">6</span>
+                    <h3>Главный цикл do-while</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>do {
+    // вычисления...
+    cout &lt;&lt; "Продолжить вычисления? (y/n): ";
+    cin &gt;&gt; choice;
+} while (choice == 'y' || choice == 'Y');</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>do-while</code> — цикл с пост-условием (выполнится хотя бы один раз)</li>
+                        <li>После каждого вычисления спрашиваем, хочет ли пользователь продолжить</li>
+                        <li>Если введено 'y' или 'Y' — цикл повторяется</li>
+                        <li>Если 'n' или другой символ — программа завершается</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">7</span>
+                    <h3>Функция main и запуск</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>int main() {
+    calculate();
+    return 0;
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>int main()</code> — точка входа в программу</li>
+                        <li>Вызываем функцию <code>calculate()</code>, где содержится вся логика калькулятора</li>
+                        <li><code>return 0</code> — сообщает операционной системе, что программа завершилась успешно</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Задания для самостоятельной работы -->
+        <section id="exercises">
+            <h2>📚 Задания для самостоятельной работы</h2>
+            <p class="section-subtitle">Попробуйте улучшить калькулятор самостоятельно</p>
+            
+            <div class="exercises-grid">
+                <div class="exercise-card">
+                    <div class="exercise-level easy">⭐ Лёгкое</div>
+                    <h3>Добавление операции остатка от деления</h3>
+                    <p>Добавьте операцию <code>%</code> (остаток от деления). Используйте только для целых чисел.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Добавьте <code>case '%': result = (int)a % (int)b;</code> и не забудьте добавить '%' в меню выбора оператора.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level easy">⭐ Лёгкое</div>
+                    <h3>Меню с индексами</h3>
+                    <p>Вместо ввода символов операторов, предложите пользователю выбрать номер операции из меню.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Выведите меню: "1. Сложение, 2. Вычитание..." и используйте switch для чисел.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level medium">⭐⭐ Среднее</div>
+                    <h3>Калькулятор с памятью</h3>
+                    <p>Добавьте переменную "память" (M+ — добавить в память, M- — вычесть, MR — показать память, MC — очистить).</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Объявите переменную <code>memory = 0</code> и добавьте соответствующие операции в switch.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level medium">⭐⭐ Среднее</div>
+                    <h3>История операций</h3>
+                    <p>Сохраняйте все выполненные операции в массив и выводите историю по запросу пользователя.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Используйте <code>vector&lt;string&gt;</code> для хранения строк с операциями.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level hard">⭐⭐⭐ Сложное</div>
+                    <h3>Поддержка тригонометрических функций</h3>
+                    <p>Добавьте операции sin, cos, tan для работы с углами в градусах или радианах.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Используйте <code>sin()</code>, <code>cos()</code>, <code>tan()</code> из библиотеки cmath. Для перевода градусов в радианы: радианы = градусы * M_PI / 180.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level hard">⭐⭐⭐ Сложное</div>
+                    <h3>Обработка выражений</h3>
+                    <p>Модифицируйте калькулятор, чтобы он принимал выражения целиком (например "25+7*3") с учётом приоритета операций.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Это сложная задача! Потребуется разбить строку на токены и реализовать алгоритм сортировочной станции.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Как скомпилировать и запустить -->
+        <section>
+            <h2>▶️ Как скомпилировать и запустить</h2>
+            <div class="how-to-run">
+                <div class="run-step">
+                    <div class="run-step-num">1</div>
+                    <div class="run-step-content">
+                        <h3>Установите компилятор C++</h3>
+                        <p><strong>Windows:</strong> Установите <a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank">MinGW-w64</a> или используйте <a href="https://visualstudio.microsoft.com/" target="_blank">Visual Studio</a>. <strong>macOS:</strong> Установите Xcode Command Line Tools: <code>xcode-select --install</code>. <strong>Linux:</strong> Установите g++: <code>sudo apt install g++</code> (Ubuntu/Debian).</p>
+                    </div>
+                </div>
+                <div class="run-step">
+                    <div class="run-step-num">2</div>
+                    <div class="run-step-content">
+                        <h3>Сохраните код в файл</h3>
+                        <p>Скопируйте код из раздела выше и вставьте в текстовый редактор. Сохраните файл с именем <code>calculator.cpp</code>.</p>
+                    </div>
+                </div>
+                <div class="run-step">
+                    <div class="run-step-num">3</div>
+                    <div class="run-step-content">
+                        <h3>Скомпилируйте программу</h3>
+                        <p>Откройте терминал/командную строку в папке с файлом и выполните:</p>
+                        <div class="terminal-command">g++ calculator.cpp -o calculator -lm</div>
+                        <p>Флаг <code>-lm</code> подключает математическую библиотеку (нужна для pow и sqrt).</p>
+                    </div>
+                </div>
+                <div class="run-step">
+                    <div class="run-step-num">4</div>
+                    <div class="run-step-content">
+                        <h3>Запустите программу</h3>
+                        <p><strong>Windows:</strong> <code>calculator.exe</code><br>
+                        <strong>macOS/Linux:</strong> <code>./calculator</code></p>
+                        <p>Также можно использовать <a href="https://replit.com" target="_blank">Replit</a> или <a href="https://onlinegdb.com" target="_blank">OnlineGDB</a> для запуска в браузере без установки.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ключевые моменты о switch -->
+        <section>
+            <h2>💡 Важные моменты об операторе switch</h2>
+            <div class="important-block">
+                <div class="important-item">
+                    <div class="important-icon">⚠️</div>
+                    <div class="important-content">
+                        <h3>Не забывайте break!</h3>
+                        <p>Без <code>break</code> выполнение "проваливается" в следующий case. Иногда это полезно, но чаще приводит к ошибкам.</p>
+                    </div>
+                </div>
+                <div class="important-item">
+                    <div class="important-icon">📋</div>
+                    <div class="important-content">
+                        <h3>Case работает только с целыми типами</h3>
+                        <p>Switch можно использовать с <code>int, char, enum</code>. Нельзя с <code>double, string</code>.</p>
+                    </div>
+                </div>
+                <div class="important-item">
+                    <div class="important-icon">🎯</div>
+                    <div class="important-content">
+                        <h3>Default — на все случаи жизни</h3>
+                        <p>Всегда добавляйте <code>default</code> для обработки непредвиденных значений.</p>
+                    </div>
+                </div>
+                <div class="important-item">
+                    <div class="important-icon">🔄</div>
+                    <div class="important-content">
+                        <h3>Сравнение с if-else</h3>
+                        <p>Switch эффективнее и читаемее при проверке одной переменной на множество значений. If-else лучше для сложных условий.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Пример работы программы -->
+        <section>
+            <h2>📺 Пример работы программы</h2>
+            <div class="example-block">
+                <div class="example-title">Терминал</div>
+                <div class="example-output">
+                    <pre>========================================
+                        ИНЖЕНЕРНЫЙ КАЛЬКУЛЯТОР
+                    ========================================
+
+                    Введите первое число: 15
+                    Выберите операцию (+, -, *, /, ^, s - квадрат, k - корень): *
+                    Введите второе число: 4
+
+                    15 * 4 = 60
+
+                    Результат: 60
+
+                    ----------------------------------------
+                    Продолжить вычисления? (y/n): y
+
+                    Введите первое число: 25
+                    Выберите операцию (+, -, *, /, ^, s - квадрат, k - корень): k
+
+                    √25 = 5
+
+                    ----------------------------------------
+                    Продолжить вычисления? (y/n): n
+
+                    Спасибо за использование калькулятора!</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Кнопка возврата -->
+        <div style="text-align: center; margin: 40px 0 60px;">
+            <a href="index.html" class="btn btn-primary" style="background: #00599C;">← Вернуться к сравнению языков</a>
+            <a href="#intro" class="btn btn-outline" style="margin-left: 16px;">⬆ Наверх</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="python-history.html">История Python</a>
+            <a href="js-history.html">История JavaScript</a>
+            <a href="cpp-history.html">История C++</a>
+            <a href="msu.html">МГУ</a>
+            <a href="itmo.html">ИТМО</a>
+            <a href="hse.html">ВШЭ</a>
+            <a href="mipt.html">МФТИ</a>
+            <a href="urfu.html">УрФУ</a>
+            <a href="tip-calculator-python.html">Калькулятор чаевых</a>
+            <a href="guess-number-js.html">Угадай число</a>
+            <a href="cpp-switch-calculator.html">Калькулятор на C++</a>
+        </div>
+        <p>Урок по созданию консольного калькулятора на C++ с оператором switch. Идеальный первый проект для изучения C++.</p>
+        <p>© 2026 — Гид по выбору языка программирования. Проект создан для помощи начинающим разработчикам.</p>
+    </div>
+</footer>
+
+<script>
+    // Копирование кода
+    document.getElementById('copy-all-code').addEventListener('click', function() {
+        const codeElement = document.getElementById('full-code');
+        const code = codeElement.textContent;
+        
+        navigator.clipboard.writeText(code).then(() => {
+            const originalText = this.textContent;
+            this.textContent = '✅ Скопировано!';
+            setTimeout(() => {
+                this.textContent = originalText;
+            }, 2000);
+        });
+    });
+    
+    // Демо-калькулятор (JavaScript для браузера)
+    let currentInput = '0';
+    let previousInput = '';
+    let currentOperator = null;
+    let waitingForOperand = false;
+    
+    function updateDisplay() {
+        document.getElementById('calcResult').textContent = currentInput;
+    }
+    
+    function inputDigit(digit) {
+        if (waitingForOperand) {
+            currentInput = digit;
+            waitingForOperand = false;
+        } else {
+            currentInput = currentInput === '0' ? digit : currentInput + digit;
+        }
+        updateDisplay();
+    }
+    
+    function inputDecimal() {
+        if (waitingForOperand) {
+            currentInput = '0.';
+            waitingForOperand = false;
+        } else if (currentInput.indexOf('.') === -1) {
+            currentInput += '.';
+        }
+        updateDisplay();
+    }
+    
+    function clearCalculator() {
+        currentInput = '0';
+        previousInput = '';
+        currentOperator = null;
+        waitingForOperand = false;
+        document.getElementById('calcHistory').textContent = 'Готов к работе';
+        updateDisplay();
+    }
+    
+    function performOperation(operator) {
+        if (currentOperator && !waitingForOperand) {
+            const current = parseFloat(currentInput);
+            const previous = parseFloat(previousInput);
+            let result;
+            
+            switch (currentOperator) {
+                case '+':
+                    result = previous + current;
+                    break;
+                case '-':
+                    result = previous - current;
+                    break;
+                case '*':
+                    result = previous * current;
+                    break;
+                case '/':
+                    if (current === 0) {
+                        document.getElementById('calcHistory').textContent = 'Ошибка: деление на ноль!';
+                        clearCalculator();
+                        return;
+                    }
+                    result = previous / current;
+                    break;
+                default:
+                    return;
+            }
+            
+            currentInput = String(result);
+            updateDisplay();
+            document.getElementById('calcHistory').textContent = `${previous} ${currentOperator} ${current} = ${result}`;
+        }
+        
+        previousInput = currentInput;
+        currentOperator = operator;
+        waitingForOperand = true;
+    }
+    
+    function calculateResult() {
+        if (currentOperator && !waitingForOperand) {
+            const current = parseFloat(currentInput);
+            const previous = parseFloat(previousInput);
+            let result;
+            
+            switch (currentOperator) {
+                case '+':
+                    result = previous + current;
+                    break;
+                case '-':
+                    result = previous - current;
+                    break;
+                case '*':
+                    result = previous * current;
+                    break;
+                case '/':
+                    if (current === 0) {
+                        document.getElementById('calcHistory').textContent = 'Ошибка: деление на ноль!';
+                        clearCalculator();
+                        return;
+                    }
+                    result = previous / current;
+                    break;
+                default:
+                    return;
+            }
+            
+            currentInput = String(result);
+            updateDisplay();
+            document.getElementById('calcHistory').textContent = `${previous} ${currentOperator} ${current} = ${result}`;
+            currentOperator = null;
+            waitingForOperand = true;
+        }
+    }
+    
+    document.querySelectorAll('.calc-key').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const action = btn.getAttribute('data-action');
+            
+            if (action === 'number') {
+                inputDigit(btn.getAttribute('data-value'));
+            } else if (action === 'decimal') {
+                inputDecimal();
+            } else if (action === 'clear') {
+                clearCalculator();
+            } else if (action === 'operator') {
+                performOperation(btn.getAttribute('data-value'));
+            } else if (action === 'equals') {
+                calculateResult();
+            }
+        });
+    });
+    
+    // FAQ аккордеон
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История JavaScript | От 10 дней до мирового господства</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-history.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <h1>🌐 JavaScript: Полная история создания и развития</h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#start">Начало</a></li>
+                <li><a href="#timeline">Хронология</a></li>
+                <li><a href="#features">Особенности</a></li>
+                <li><a href="#ecosystem">Экосистема</a></li>
+                <li><a href="#frameworks">Фреймворки</a></li>
+                <li><a href="#comparison">Сравнение</a></li>
+                <li><a href="index.html">← На главную</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Hero секция -->
+        <section class="hero" id="start">
+            <span class="hero-badge" style="background: rgba(247, 223, 30, 0.2); color: var(--accent-js);">🔥 30 лет в вебе</span>
+            <h1>История JavaScript:<br>от 10 дней до мирового господства</h1>
+            <p>Как язык, созданный за 10 дней, стал стандартом веб-разработки, захватил серверы, десктопы и даже мобильные устройства. Сегодня JavaScript — самый популярный язык программирования в мире.</p>
+            <div class="hero-buttons">
+                <a href="#timeline" class="btn btn-primary" style="background: var(--accent-js); color: #1a1a2e;">📜 Полная хронология</a>
+                <a href="#features" class="btn btn-outline">⚡ Ключевые особенности</a>
+                <a href="index.html" class="btn btn-outline">🏠 Вернуться к сравнению</a>
+            </div>
+        </section>
+
+        <!-- Статистика -->
+        <div class="stats-grid">
+            <div class="stat-big">
+                <div class="number">1995</div>
+                <div class="label">Год создания</div>
+            </div>
+            <div class="stat-big">
+                <div class="number">17M+</div>
+                <div class="label">Разработчиков в мире</div>
+            </div>
+            <div class="stat-big">
+                <div class="number">98%</div>
+                <div class="label">всех сайтов используют JS</div>
+            </div>
+            <div class="stat-big">
+                <div class="number">2M+</div>
+                <div class="label">пакетов на npm</div>
+            </div>
+        </div>
+
+        <!-- Рождение JavaScript -->
+        <section>
+            <h2>⚡ Рождение за 10 дней</h2>
+            <div class="creator-block">
+                <div class="creator-text">
+                    <p><strong>Брендан Айк (Brendan Eich)</strong> — американский программист, работавший в компании <strong>Netscape Communications</strong>. В 1995 году интернет переживал бум: браузер Netscape Navigator был самым популярным, но веб-страницы оставались статичными.</p>
+                    <p>Компании нужен был простой язык сценариев для браузера, который бы позволял проверять формы, создавать анимации и делать страницы интерактивными. Задачу поручили Брендану Айку.</p>
+                    <p><strong>Условие было жёстким:</strong> создать рабочий прототип за <strong>10 дней</strong>. И Айк справился! Изначально язык назывался <strong>Mocha</strong>, затем <strong>LiveScript</strong>, а в декабре 1995 года, в рамках маркетингового соглашения с Sun Microsystems (создателями Java), его переименовали в <strong>JavaScript</strong>.</p>
+                    <div class="fun-fact" style="margin-top: 16px;">
+                        <strong>🎭 Забавный факт:</strong> Название "JavaScript" было чисто маркетинговым ходом. Язык не имеет ничего общего с Java, кроме похожего синтаксиса. Брендан Айк до сих пор жалеет об этом названии, так как оно вводит в заблуждение миллионы новичков.
+                    </div>
+                </div>
+                <div class="creator-quote">
+                    <p>«Я создал JavaScript за 10 дней, но потом на 15 лет исправлял последствия спешки».</p>
+                    <p style="margin-top: 16px;">— Брендан Айк</p>
+                    <hr style="margin: 16px 0; border-color: rgba(255,255,255,0.1);">
+                    <p>«Если бы у меня было больше времени, я бы сделал его идеальным. Но история не знает сослагательного наклонения».</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Полная хронология -->
+        <section id="timeline">
+            <h2>📅 Полная хронология развития JavaScript</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">Май 1995</div>
+                    <div class="timeline-version">Mocha → LiveScript → JavaScript</div>
+                    <div class="timeline-title">🎨 Рождение языка</div>
+                    <p>Брендан Айк за 10 дней создаёт первый прототип. Язык представлен в бета-версии Netscape Navigator 2.0 под именем LiveScript, затем переименован в JavaScript.</p>
+                    <ul class="timeline-details">
+                        <li>Первая реализация: 10 дней кода</li>
+                        <li>Изначальные фичи: динамическая типизация, функции как объекты первого класса</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Август 1996</div>
+                    <div class="timeline-version">Internet Explorer 3.0</div>
+                    <div class="timeline-title">🌍 Microsoft внедряет JScript</div>
+                    <p>Microsoft создаёт свою версию языка — JScript, чтобы конкурировать с Netscape. Начинается эра «войны браузеров», и JavaScript оказывается в эпицентре.</p>
+                    <ul class="timeline-details">
+                        <li>JScript от Microsoft</li>
+                        <li>Начинаются проблемы совместимости между браузерами</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Июнь 1997</div>
+                    <div class="timeline-version">ECMAScript 1 (ES1)</div>
+                    <div class="timeline-title">📜 Первая стандартизация</div>
+                    <p>JavaScript передаётся в организацию ECMA International для стандартизации. Принимается первый стандарт ECMAScript (ES1). Это спасает язык от фрагментации.</p>
+                    <ul class="timeline-details">
+                        <li>Язык получает официальный стандарт</li>
+                        <li>Обеспечена совместимость между браузерами</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1999</div>
+                    <div class="timeline-version">ECMAScript 3 (ES3)</div>
+                    <div class="timeline-title">🔧 Стабилизация и популярность</div>
+                    <p>ES3 добавляет регулярные выражения, try/catch, switch и другие важные возможности. Этот стандарт стал основой для JavaScript на следующие 10 лет.</p>
+                    <ul class="timeline-details">
+                        <li>Регулярные выражения</li>
+                        <li>Блоки try/catch для обработки ошибок</li>
+                        <li>Оператор switch</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2005-2009</div>
+                    <div class="timeline-version">Эра AJAX и Web 2.0</div>
+                    <div class="timeline-title">🔄 JavaScript становится серьёзным</div>
+                    <p>Появление AJAX (Asynchronous JavaScript and XML) позволяет создавать динамические веб-приложения. Gmail, Google Maps показывают мощь JavaScript. Рождаются jQuery, Prototype, MooTools.</p>
+                    <ul class="timeline-details">
+                        <li>jQuery — король фронтенда (2006)</li>
+                        <li>Google Maps и Gmail меняют представление о вебе</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2009</div>
+                    <div class="timeline-version">ECMAScript 5 (ES5)</div>
+                    <div class="timeline-title">📦 "Запоздалое" обновление</div>
+                    <p>После долгого затишья выходит ES5. Добавлены строгий режим, геттеры/сеттеры, методы массивов (forEach, map, filter). Это обновление стало мостом к современному JS.</p>
+                    <ul class="timeline-details">
+                        <li>"use strict" — строгий режим</li>
+                        <li>JSON.parse() и JSON.stringify()</li>
+                        <li>Методы массивов: forEach, map, filter, reduce</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Май 2009</div>
+                    <div class="timeline-version">Node.js</div>
+                    <div class="timeline-title">🚀 Революция: JavaScript на сервере</div>
+                    <p>Райан Дал создаёт Node.js — платформу, которая позволяет выполнять JavaScript вне браузера, на сервере. Это стало <strong>поворотным моментом</strong> в истории языка.</p>
+                    <ul class="timeline-details">
+                        <li>JavaScript выходит на сервер</li>
+                        <li>Асинхронная модель event loop</li>
+                        <li>Огромная экосистема npm</li>
+                    </ul>
+                    <div class="fun-fact" style="margin-top: 12px;">
+                        💡 <strong>Значение:</strong> Node.js превратил JavaScript из узкоспециализированного браузерного языка в полноценный универсальный язык full-stack разработки.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2010-2015</div>
+                    <div class="timeline-version">Появление фреймворков</div>
+                    <div class="timeline-title">🏗️ Эра одностраничных приложений (SPA)</div>
+                    <p>Появляются AngularJS (Google), Backbone.js, Ember.js. Разработка сложных веб-приложений становится структурированной.</p>
+                    <ul class="timeline-details">
+                        <li>AngularJS (2010) — первый крупный фреймворк от Google</li>
+                        <li>Backbone.js — организованный код</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Июнь 2015</div>
+                    <div class="timeline-version">ECMAScript 2015 (ES6 / ES2015)</div>
+                    <div class="timeline-title">🌟 Современный JavaScript</div>
+                    <p><strong>Самый важный релиз в истории JS!</strong> ES6 добавил классы, стрелочные функции, промисы, шаблонные строки, деструктуризацию, модули, let/const. Язык стал современным и приятным для разработки.</p>
+                    <ul class="timeline-details">
+                        <li>let и const — блочная область видимости</li>
+                        <li>Стрелочные функции () => {}</li>
+                        <li>Классы (синтаксический сахар над прототипами)</li>
+                        <li>Промисы (Promise) для асинхронности</li>
+                        <li>Шаблонные строки `${variable}`</li>
+                        <li>Модули (import/export)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2016-2017</div>
+                    <div class="timeline-version">ES7, ES8</div>
+                    <div class="timeline-title">async/await и декораторы</div>
+                    <p>ES2016 добавляет оператор возведения в степень (**) и includes для массивов. ES2017 — async/await (пиши асинхронный код как синхронный!).</p>
+                    <ul class="timeline-details">
+                        <li>async/await — синтаксический сахар для промисов</li>
+                        <li>Object.values(), Object.entries()</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2018-2020</div>
+                    <div class="timeline-version">ES9, ES10, ES11</div>
+                    <div class="timeline-title">Опциональная цепочка и нулевое слияние</div>
+                    <p>Добавлены удобные операторы: ?. (опциональная цепочка), ?? (нулевое слияние), Promise.allSettled.</p>
+                    <ul class="timeline-details">
+                        <li>Опциональная цепочка ?. — безопасный доступ к свойствам</li>
+                        <li>Nullish coalescing ?? — значение по умолчанию</li>
+                        <li>BigInt — работа с большими числами</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2021-2024</div>
+                    <div class="timeline-version">ES12 → ES15</div>
+                    <div class="timeline-title">Стабильное ежегодное обновление</div>
+                    <p>JavaScript развивается малыми, но полезными шагами: replaceAll, WeakRef, логические операторы присваивания, массив findLast, улучшения Temporal.</p>
+                    <ul class="timeline-details">
+                        <li>replaceAll() — замена всех вхождений</li>
+                        <li>Логические операторы присваивания (||=, &&=, ??=)</li>
+                        <li>findLast(), findLastIndex() для массивов</li>
+                        <li>Temporal — современный API для работы с датами</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ключевые особенности -->
+        <section id="features">
+            <h2>⚡ Ключевые особенности JavaScript</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Событийно-ориентированный</h3>
+                    <p>Асинхронная модель event loop позволяет обрабатывать тысячи запросов без блокировки потока.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Динамическая типизация</h3>
+                    <p>Переменные могут менять тип во время выполнения. Гибко, но требует осторожности.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Прототипное наследование</h3>
+                    <p>Объекты наследуются напрямую от других объектов. Классы — синтаксический сахар.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Функции первого класса</h3>
+                    <p>Функции — это объекты. Их можно передавать как аргументы, возвращать из функций.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Замыкания (Closures)</h3>
+                    <p>Внутренняя функция "запоминает" окружение, в котором была создана. Мощный паттерн.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>JIT-компиляция</h3>
+                    <p>Современные движки (V8, SpiderMonkey) компилируют JS в машинный код на лету.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Экосистема и npm -->
+        <section id="ecosystem">
+            <h2>📦 Экосистема: npm — крупнейший реестр пакетов</h2>
+            <p class="section-subtitle">Более 2 миллионов пакетов — больше, чем в любом другом экосистеме языков программирования</p>
+            <div class="ecosystem-grid">
+                <div class="ecosystem-category">
+                    <h4>⚡ Фронтенд-фреймворки</h4>
+                    <ul>
+                        <li><strong>React</strong> — от Facebook (Meta), компонентный подход</li>
+                        <li><strong>Vue.js</strong> — прогрессивный и лёгкий</li>
+                        <li><strong>Angular</strong> — полноценный фреймворк от Google</li>
+                        <li><strong>Svelte</strong> — компилируемый фреймворк</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h4>🚀 Бэкенд на Node.js</h4>
+                    <ul>
+                        <li><strong>Express.js</strong> — минималистичный веб-фреймворк</li>
+                        <li><strong>Nest.js</strong> — для корпоративных приложений</li>
+                        <li><strong>Fastify</strong> — высокопроизводительный</li>
+                        <li><strong>Next.js</strong> — full-stack React-фреймворк</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h4>🛠️ Инструменты сборки</h4>
+                    <ul>
+                        <li><strong>Webpack</strong> — сборщик модулей</li>
+                        <li><strong>Vite</strong> — быстрая сборка (новый стандарт)</li>
+                        <li><strong>Parcel</strong> — zero-config бандлер</li>
+                        <li><strong>ESBuild</strong> — сверхбыстрый на Go</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h4>📱 Мобильная разработка</h4>
+                    <ul>
+                        <li><strong>React Native</strong> — нативные приложения от Facebook</li>
+                        <li><strong>Ionic</strong> — гибридные приложения</li>
+                        <li><strong>NativeScript</strong> — прямой доступ к нативным API</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h4>💻 Десктопные приложения</h4>
+                    <ul>
+                        <li><strong>Electron</strong> — VS Code, Slack, Discord, Spotify</li>
+                        <li><strong>Tauri</strong> — лёгкая альтернатива Electron</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h4>🧪 Тестирование</h4>
+                    <ul>
+                        <li><strong>Jest</strong> — от Facebook</li>
+                        <li><strong>Vitest</strong> — для Vite-проектов</li>
+                        <li><strong>Cypress</strong> — E2E тестирование</li>
+                        <li><strong>Playwright</strong> — от Microsoft</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные фреймворки -->
+        <section id="frameworks">
+            <h2>🏆 Сравнение популярных фреймворков</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Фреймворк</th>
+                        <th>Создатель</th>
+                        <th>Год</th>
+                        <th>Ключевая особенность</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>React</strong></td>
+                        <td>Facebook (Meta)</td>
+                        <td>2013</td>
+                        <td>Virtual DOM, JSX, Хуки, компонентный подход</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vue.js</strong></td>
+                        <td>Эван Ю</td>
+                        <td>2014</td>
+                        <td>Простота, постепенное внедрение, однофайловые компоненты</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Angular</strong></td>
+                        <td>Google</td>
+                        <td>2016 (Angular 2+)</td>
+                        <td>TypeScript, DI, полноценное решение "из коробки"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Svelte</strong></td>
+                        <td>Рич Харрис</td>
+                        <td>2016</td>
+                        <td>Отсутствие Virtual DOM, компиляция во время сборки</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Next.js</strong></td>
+                        <td>Vercel</td>
+                        <td>2016</td>
+                        <td>SSR, статическая генерация, полный стек React</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuxt.js</strong></td>
+                        <td>Сообщество</td>
+                        <td>2016</td>
+                        <td>SSR для Vue.js, модульная архитектура</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- TypeScript -->
+        <section>
+            <h2>📝 TypeScript: JavaScript со статической типизацией</h2>
+            <div class="creator-block">
+                <div class="creator-text">
+                    <p><strong>TypeScript</strong> — язык-надмножество JavaScript, разработанный Microsoft. Он добавляет статическую типизацию, интерфейсы, дженерики, enum и другие возможности, которые компилируются в чистый JavaScript.</p>
+                    <p>Выпущен в 2012 году, сегодня стал <strong>де-факто стандартом</strong> для крупных проектов. React, Vue, Angular, Next.js — все они отлично работают с TypeScript.</p>
+                    <p>По опросу Stack Overflow 2024, TypeScript входит в топ-5 самых любимых языков программирования.</p>
+                </div>
+                <div class="creator-quote" style="background: rgba(0, 122, 204, 0.15); border-left-color: #007ACC;">
+                    <p>«TypeScript — это JavaScript, который масштабируется. Мы создали его, чтобы сделать разработку крупных приложений предсказуемой и безопасной».</p>
+                    <p style="margin-top: 8px;">— Андерс Хейлсберг, создатель TypeScript</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Сравнение ES5 vs ES6 -->
+        <section id="comparison">
+            <h2>🔄 Сравнение: ES5 vs ES6+ (современный JS)</h2>
+            <p class="section-subtitle">Как изменился синтаксис и возможности</p>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Возможность</th>
+                        <th>ES5 (старый стиль)</th>
+                        <th>ES6+ (современный стиль)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Объявление переменных</td>
+                        <td><code>var x = 10;</code></td>
+                        <td><code>let x = 10; const y = 20;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Функции</td>
+                        <td><code>function() { return 5; }</code></td>
+                        <td><code>() => 5</code> (стрелочные функции)</td>
+                    </tr>
+                    <tr>
+                        <td>Строки</td>
+                        <td><code>'Hello ' + name</code></td>
+                        <td><code>`Hello ${name}`</code> (шаблонные строки)</td>
+                    </tr>
+                    <tr>
+                        <td>Классы</td>
+                        <td>Функции-конструкторы + прототипы</td>
+                        <td><code>class Animal { }</code></td>
+                    </tr>
+                    <tr>
+                        <td>Асинхронность</td>
+                        <td>Колбэки ("ад колбэков")</td>
+                        <td>Promises, async/await</td>
+                    </tr>
+                    <tr>
+                        <td>Модули</td>
+                        <td>IIFE, CommonJS (require)</td>
+                        <td>import/export (ES Modules)</td>
+                    </tr>
+                    <tr>
+                        <td>Деструктуризация</td>
+                        <td>Нет</td>
+                        <td><code>const {x, y} = obj;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Spread/Rest</td>
+                        <td>Нет</td>
+                        <td><code>[...arr], ...args</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Интересные факты -->
+        <section>
+            <h2>💡 Интересные факты о JavaScript</h2>
+            <div class="fun-facts-grid">
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">😵</div>
+                    <h3>"Странности" JS</h3>
+                    <p><code>typeof null === "object"</code> — баг, который нельзя исправить из-за обратной совместимости. <code>NaN !== NaN</code> — потому что NaN означает "не число".</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">⚡</div>
+                    <h3>V8 — самый быстрый движок</h3>
+                    <p>Движок V8 от Google (Chrome, Node.js) написан на C++. Он компилирует JS в машинный код на лету (JIT), что делает JavaScript невероятно быстрым.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">🟡</div>
+                    <h3>Жёлтый цвет — не случайность</h3>
+                    <p>Логотип JavaScript — жёлтый, потому что оригинальный логотип Java был красным, и нужно было визуально различать языки.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">🌍</div>
+                    <h3>JavaScript везде</h3>
+                    <p>NASA использует JS для управления космическими кораблями, Tesla — для интерфейса автомобилей, Netflix, PayPal, Uber — серверы на Node.js.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">📈</div>
+                    <h3>Самый популярный язык 10+ лет</h3>
+                    <p>JavaScript — самый популярный язык программирования в мире по версии Stack Overflow Survey уже более 10 лет подряд.</p>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-icon">🚀</div>
+                    <h3>npm — крупнейший реестр</h3>
+                    <p>В npm (Node Package Manager) более 2 миллионов пакетов — больше, чем в PyPI, RubyGems и Maven вместе взятых.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Компании, использующие JS -->
+        <section>
+            <h2>🏢 Кто использует JavaScript</h2>
+            <div class="companies-grid">
+                <div class="company-card">🌐 Google</div>
+                <div class="company-card">📘 Facebook (Meta)</div>
+                <div class="company-card">🐦 Twitter (X)</div>
+                <div class="company-card">🎬 Netflix</div>
+                <div class="company-card">🚗 Uber</div>
+                <div class="company-card">✈️ Airbnb</div>
+                <div class="company-card">💼 LinkedIn</div>
+                <div class="company-card">📺 YouTube</div>
+                <div class="company-card">🛒 Amazon</div>
+                <div class="company-card">📱 WhatsApp</div>
+                <div class="company-card">🎵 Spotify</div>
+                <div class="company-card">🐙 GitHub</div>
+            </div>
+        </section>
+
+        <!-- Кнопка возврата -->
+        <div style="text-align: center; margin: 40px 0 60px;">
+            <a href="index.html" class="btn btn-primary" style="background: var(--accent-js); color: #1a1a2e;">← Вернуться к сравнению Python, JS, C++</a>
+            <a href="#start" class="btn btn-outline" style="margin-left: 16px;">⬆ Наверх</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="python-history.html">История Python</a>
+            <a href="js-history.html">История JavaScript</a>
+            <a href="cpp-history.html">История C++</a>
+        </div>
+        <p>История JavaScript и его развитие. Данные основаны на спецификациях ECMAScript, документации MDN Web Docs и исторических статьях Брендана Айка.</p>
+        <p>© 2026 — Гид по выбору языка программирования. Проект создан для помощи начинающим разработчикам.</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Игра «Угадай число» на JavaScript | Урок для начинающих</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="guess-number-js.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <h1>🎲 Игра «Угадай число» на JavaScript</h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#intro">Введение</a></li>
+                <li><a href="#demo">Поиграть</a></li>
+                <li><a href="#code">Код</a></li>
+                <li><a href="#explanation">Объяснение</a></li>
+                <li><a href="#exercises">Задания</a></li>
+                <li><a href="index.html">← На главную</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Hero секция -->
+        <section class="hero" id="intro">
+            <span class="hero-badge" style="background: rgba(247, 223, 30, 0.2); color: #F7DF1E;">🎮 Первая игра на JavaScript</span>
+            <h1>Как сделать игру «Угадай число»<br>на JavaScript</h1>
+            <p>Игра «Угадай число» — идеальный первый проект для начинающего веб-разработчика. Вы научитесь работать со случайными числами, событиями, DOM-элементами и обратной связью с пользователем. И главное — вы создадите полноценную игру, которая работает прямо в браузере!</p>
+            <div class="hero-buttons">
+                <a href="#demo" class="btn btn-primary" style="background: #F7DF1E; color: #1a1a2e;">🎮 Поиграть прямо сейчас</a>
+                <a href="#code" class="btn btn-outline">📝 Посмотреть код</a>
+                <a href="#exercises" class="btn btn-outline">📚 Задания</a>
+            </div>
+        </section>
+
+        <!-- Что вы научитесь делать -->
+        <section>
+            <h2>📚 Что вы научитесь делать</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎲</div>
+                    <h3>Генерировать случайные числа</h3>
+                    <p>Использовать Math.random() для создания случайного числа в заданном диапазоне</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📝</div>
+                    <h3>Работать с DOM</h3>
+                    <p>Получать значение из input, изменять текст в элементах, управлять видимостью</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Обрабатывать события</h3>
+                    <p>Реагировать на клики кнопок, нажатие Enter, обновление страницы</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3>Сравнивать числа</h3>
+                    <p>Проверять, больше, меньше или равно введённое число загаданному</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Считать попытки</h3>
+                    <p>Вести счётчик попыток и отображать статистику игры</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Создавать интерфейс</h3>
+                    <p>Верстать игровой интерфейс с подсказками и обратной связью</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Живая демо-версия игры -->
+        <section id="demo">
+            <h2>🎮 Поиграй прямо сейчас</h2>
+            <p class="section-subtitle">Я загадал число от 1 до 100. Попробуй угадать!</p>
+            
+            <div class="game-container">
+                <div class="game-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">🎯 Загаданное число</div>
+                        <div class="stat-value" id="secretNumber">???</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">📊 Попыток</div>
+                        <div class="stat-value" id="attemptCount">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">🎮 Диапазон</div>
+                        <div class="stat-value">1 - 100</div>
+                    </div>
+                </div>
+                
+                <div class="game-main">
+                    <div class="message-area" id="messageArea">
+                        <div class="message-icon">🤔</div>
+                        <div class="message-text" id="gameMessage">Введи число и нажми "Проверить"!</div>
+                    </div>
+                    
+                    <div class="input-area">
+                        <input type="number" id="guessInput" class="guess-input" placeholder="Введите число от 1 до 100" min="1" max="100">
+                        <div class="button-group">
+                            <button id="checkBtn" class="btn-game btn-check">🔍 Проверить</button>
+                            <button id="resetBtn" class="btn-game btn-reset">🔄 Новая игра</button>
+                        </div>
+                    </div>
+                    
+                    <div class="history-area">
+                        <div class="history-title">📜 История ваших попыток:</div>
+                        <div id="historyList" class="history-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Полный код программы -->
+        <section id="code">
+            <h2>📝 Полный код игры</h2>
+            <div class="code-tabs">
+                <button class="tab-btn active" data-tab="html">HTML</button>
+                <button class="tab-btn" data-tab="css">CSS</button>
+                <button class="tab-btn" data-tab="js">JavaScript</button>
+            </div>
+            
+            <!-- HTML код -->
+            <div class="code-panel active" id="html-panel">
+                <div class="code-header">
+                    <span class="code-title">📄 index.html</span>
+                    <button class="copy-btn" data-code="html-code">📋 Копировать</button>
+                </div>
+                <div class="code-block">
+                    <pre id="html-code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Угадай число&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="game-container"&gt;
+        &lt;h1&gt;🎲 Угадай число&lt;/h1&gt;
+        &lt;p&gt;Я загадал число от 1 до 100. Попробуй угадать!&lt;/p&gt;
+        
+        &lt;div class="stats"&gt;
+            &lt;div&gt;Попыток: &lt;span id="attempts"&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;Лучший результат: &lt;span id="bestScore"&gt;—&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="message" id="message"&gt;🤔 Введи число и нажми "Проверить"!&lt;/div&gt;
+        
+        &lt;input type="number" id="guessInput" placeholder="Введите число" min="1" max="100"&gt;
+        
+        &lt;div class="buttons"&gt;
+            &lt;button id="checkBtn"&gt;Проверить&lt;/button&gt;
+            &lt;button id="resetBtn"&gt;Новая игра&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="history" id="history"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+            
+            <!-- CSS код -->
+            <div class="code-panel" id="css-panel">
+                <div class="code-header">
+                    <span class="code-title">🎨 style.css</span>
+                    <button class="copy-btn" data-code="css-code">📋 Копировать</button>
+                </div>
+                <div class="code-block">
+                    <pre id="css-code"><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.game-container {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.message {
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+#checkBtn {
+    background: #F7DF1E;
+    color: #1a1a2e;
+    font-weight: bold;
+}
+
+#resetBtn {
+    background: #e74c3c;
+    color: white;
+}
+
+.history {
+    margin-top: 20px;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 8px;
+    margin: 5px 0;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+} </code></pre>
+                </div>
+            </div>
+            
+            <!-- JavaScript код -->
+            <div class="code-panel" id="js-panel">
+                <div class="code-header">
+                    <span class="code-title">⚡ script.js</span>
+                    <button class="copy-btn" data-code="js-code">📋 Копировать</button>
+                </div>
+                <div class="code-block">
+                    <pre id="js-code"><code>// Игра "Угадай число" на JavaScript
+class GuessNumberGame {
+    constructor() {
+        this.secretNumber = null;
+        this.attempts = 0;
+        this.bestScore = localStorage.getItem('bestScore') || null;
+        this.history = [];
+        this.isGameOver = false;
+        
+        this.initDOM();
+        this.newGame();
+        this.addEventListeners();
+        this.updateUI();
+    }
+    
+    initDOM() {
+        this.guessInput = document.getElementById('guessInput');
+        this.checkBtn = document.getElementById('checkBtn');
+        this.resetBtn = document.getElementById('resetBtn');
+        this.messageDiv = document.getElementById('message');
+        this.attemptsSpan = document.getElementById('attempts');
+        this.bestScoreSpan = document.getElementById('bestScore');
+        this.historyDiv = document.getElementById('history');
+    }
+    
+    newGame() {
+        this.secretNumber = Math.floor(Math.random() * 100) + 1;
+        this.attempts = 0;
+        this.history = [];
+        this.isGameOver = false;
+        this.guessInput.disabled = false;
+        this.checkBtn.disabled = false;
+        this.guessInput.value = '';
+        this.messageDiv.innerHTML = '🤔 Я загадал число от 1 до 100. Попробуй угадать!';
+        this.updateUI();
+        this.updateHistory();
+    }
+    
+    checkGuess() {
+        if (this.isGameOver) {
+            this.messageDiv.innerHTML = '🎮 Игра окончена! Нажми "Новая игра" чтобы продолжить.';
+            return;
+        }
+        
+        const guess = parseInt(this.guessInput.value);
+        
+        if (isNaN(guess) || guess < 1 || guess > 100) {
+            this.messageDiv.innerHTML = '⚠️ Пожалуйста, введите число от 1 до 100!';
+            return;
+        }
+        
+        this.attempts++;
+        this.history.push(guess);
+        
+        if (guess === this.secretNumber) {
+            this.gameWin(guess);
+        } else if (guess < this.secretNumber) {
+            this.messageDiv.innerHTML = `📈 ${guess} — слишком мало! Попробуй еще.`;
+        } else {
+            this.messageDiv.innerHTML = `📉 ${guess} — слишком много! Попробуй еще.`;
+        }
+        
+        this.updateUI();
+        this.updateHistory();
+        this.guessInput.value = '';
+        this.guessInput.focus();
+    }
+    
+    gameWin(guess) {
+        this.isGameOver = true;
+        this.guessInput.disabled = true;
+        this.checkBtn.disabled = true;
+        
+        if (!this.bestScore || this.attempts < this.bestScore) {
+            this.bestScore = this.attempts;
+            localStorage.setItem('bestScore', this.bestScore);
+            this.messageDiv.innerHTML = `🎉 ПОБЕДА! Ты угадал число ${this.secretNumber} за ${this.attempts} попыток! 🎉<br>🏆 НОВЫЙ РЕКОРД! 🏆`;
+        } else {
+            this.messageDiv.innerHTML = `🎉 ПОБЕДА! Ты угадал число ${this.secretNumber} за ${this.attempts} попыток! 🎉`;
+        }
+        
+        this.updateUI();
+    }
+    
+    updateUI() {
+        this.attemptsSpan.textContent = this.attempts;
+        this.bestScoreSpan.textContent = this.bestScore ? this.bestScore : '—';
+    }
+    
+    updateHistory() {
+        this.historyDiv.innerHTML = '';
+        this.history.forEach((guess, index) => {
+            const item = document.createElement('div');
+            item.className = 'history-item';
+            let emoji = '❓';
+            if (guess === this.secretNumber && this.isGameOver) {
+                emoji = '✅';
+            } else if (guess < this.secretNumber) {
+                emoji = '📈';
+            } else {
+                emoji = '📉';
+            }
+            item.textContent = `${emoji} Попытка ${index + 1}: ${guess}`;
+            this.historyDiv.appendChild(item);
+        });
+        this.historyDiv.scrollTop = this.historyDiv.scrollHeight;
+    }
+    
+    addEventListeners() {
+        this.checkBtn.addEventListener('click', () => this.checkGuess());
+        this.resetBtn.addEventListener('click', () => this.newGame());
+        this.guessInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.checkGuess();
+        });
+    }
+}
+
+// Запуск игры
+document.addEventListener('DOMContentLoaded', () => {
+    new GuessNumberGame();
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Разбор кода по шагам -->
+        <section id="explanation">
+            <h2>🔍 Разбор кода шаг за шагом</h2>
+            
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    <h3>Класс игры и конструктор</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>class GuessNumberGame {
+    constructor() {
+        this.secretNumber = null;
+        this.attempts = 0;
+        this.bestScore = localStorage.getItem('bestScore') || null;
+        this.history = [];
+        this.isGameOver = false;
+    }
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>class GuessNumberGame</code> — создаём класс, который содержит всю логику игры</li>
+                        <li><code>constructor()</code> — метод, который вызывается при создании нового экземпляра игры</li>
+                        <li><code>this.secretNumber</code> — загаданное число (будет установлено позже)</li>
+                        <li><code>this.attempts</code> — счётчик попыток</li>
+                        <li><code>localStorage.getItem('bestScore')</code> — загружаем лучший результат из памяти браузера</li>
+                        <li><code>this.history</code> — массив для хранения всех попыток</li>
+                        <li><code>this.isGameOver</code> — флаг, закончена ли игра</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <h3>Генерация случайного числа</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>newGame() {
+    this.secretNumber = Math.floor(Math.random() * 100) + 1;
+    this.attempts = 0;
+    this.history = [];
+    this.isGameOver = false;
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>Math.random()</code> — генерирует случайное число от 0 (включительно) до 1 (не включительно)</li>
+                        <li><code>Math.random() * 100</code> — даёт число от 0 до 99.999...</li>
+                        <li><code>Math.floor()</code> — округляет вниз до целого числа (0-99)</li>
+                        <li><code>+ 1</code> — смещает диапазон до 1-100</li>
+                        <li>Сбрасываем счётчик попыток, историю и флаг окончания игры</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <h3>Обработка ввода и проверка числа</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>checkGuess() {
+    const guess = parseInt(this.guessInput.value);
+    
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+        this.messageDiv.innerHTML = '⚠️ Введите число от 1 до 100!';
+        return;
+    }
+    
+    this.attempts++;
+    this.history.push(guess);
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>parseInt()</code> — преобразует строку из поля ввода в число</li>
+                        <li><code>isNaN(guess)</code> — проверяет, является ли введённое значение числом</li>
+                        <li>Проверяем, что число в диапазоне от 1 до 100</li>
+                        <li><code>return</code> — прерывает выполнение функции, если данные некорректны</li>
+                        <li>Увеличиваем счётчик попыток и добавляем число в историю</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <h3>Сравнение с загаданным числом</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>if (guess === this.secretNumber) {
+    this.gameWin(guess);
+} else if (guess < this.secretNumber) {
+    this.messageDiv.innerHTML = `📈 ${guess} — слишком мало! Попробуй еще.`;
+} else {
+    this.messageDiv.innerHTML = `📉 ${guess} — слишком много! Попробуй еще.`;
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>===</code> — строгое сравнение (проверяет и значение, и тип)</li>
+                        <li>Если число угадано → вызываем функцию победы <code>gameWin()</code></li>
+                        <li>Если меньше → выводим подсказку "слишком мало"</li>
+                        <li>Если больше → выводим подсказку "слишком много"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    <h3>Победа и рекорды</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>gameWin(guess) {
+    this.isGameOver = true;
+    this.guessInput.disabled = true;
+    this.checkBtn.disabled = true;
+    
+    if (!this.bestScore || this.attempts < this.bestScore) {
+        this.bestScore = this.attempts;
+        localStorage.setItem('bestScore', this.bestScore);
+        this.messageDiv.innerHTML = `Новый рекорд! 🏆`;
+    }
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li>Блокируем поле ввода и кнопку проверки</li>
+                        <li><code>!this.bestScore</code> — проверяем, есть ли сохранённый рекорд</li>
+                        <li>Если текущее количество попыток меньше рекорда — сохраняем новый рекорд</li>
+                        <li><code>localStorage.setItem()</code> — сохраняем рекорд в памяти браузера (даже после перезагрузки страницы)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">6</span>
+                    <h3>Обработчики событий</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>addEventListeners() {
+    this.checkBtn.addEventListener('click', () => this.checkGuess());
+    this.resetBtn.addEventListener('click', () => this.newGame());
+    this.guessInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') this.checkGuess();
+    });
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>addEventListener</code> — добавляем обработчик событий на элементы</li>
+                        <li><code>click</code> — отслеживаем клик по кнопке "Проверить" и "Новая игра"</li>
+                        <li><code>keypress</code> — отслеживаем нажатие клавиш в поле ввода</li>
+                        <li><code>e.key === 'Enter'</code> — если нажата клавиша Enter, вызываем проверку</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">7</span>
+                    <h3>Обновление интерфейса и истории</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>updateHistory() {
+    this.historyDiv.innerHTML = '';
+    this.history.forEach((guess, index) => {
+        const item = document.createElement('div');
+        item.className = 'history-item';
+        item.textContent = `Попытка ${index + 1}: ${guess}`;
+        this.historyDiv.appendChild(item);
+    });
+}</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>innerHTML = ''</code> — очищаем контейнер истории</li>
+                        <li><code>forEach</code> — проходим по массиву всех попыток</li>
+                        <li><code>createElement('div')</code> — создаём новый HTML-элемент для каждой попытки</li>
+                        <li><code>appendChild</code> — добавляем созданный элемент в контейнер</li>
+                        <li><code>scrollTop</code> — автоматически прокручиваем историю к последней попытке</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Задания для самостоятельной работы -->
+        <section id="exercises">
+            <h2>📚 Задания для самостоятельной работы</h2>
+            <p class="section-subtitle">Попробуйте улучшить игру самостоятельно</p>
+            
+            <div class="exercises-grid">
+                <div class="exercise-card">
+                    <div class="exercise-level easy">⭐ Лёгкое</div>
+                    <h3>Подсказка "Холодно-горячо"</h3>
+                    <p>Добавьте цветовую индикацию подсказок. Если число очень близко (разница меньше 5), показывайте "Горячо! 🔥", если далеко — "Холодно ❄️".</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Вычислите разницу: <code>const diff = Math.abs(guess - this.secretNumber);</code> и используйте условия <code>if (diff <= 5)</code>.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level easy">⭐ Лёгкое</div>
+                    <h3>Кнопка "Сдаться"</h3>
+                    <p>Добавьте кнопку "Сдаться", которая показывает загаданное число и завершает игру без победы.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Создайте метод <code>surrender()</code>, который показывает число и блокирует ввод.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level medium">⭐⭐ Среднее</div>
+                    <h3>Выбор уровня сложности</h3>
+                    <p>Добавьте выбор диапазона чисел: лёгкий (1-50), средний (1-100), сложный (1-200).</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Добавьте <code>&lt;select&gt;</code> с вариантами и передавайте максимальное число в <code>newGame(max)</code>.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level medium">⭐⭐ Среднее</div>
+                    <h3>Анимация при победе</h3>
+                    <p>Добавьте конфетти или анимацию при победе. Используйте библиотеку <code>canvas-confetti</code> или напишите свою простую анимацию.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Подключите CDN <code>canvas-confetti</code> и вызовите <code>confetti()</code> при победе.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level hard">⭐⭐⭐ Сложное</div>
+                    <h3>Турнирная таблица</h3>
+                    <p>Добавьте таблицу рекордов, которая показывает 5 лучших результатов (имя + количество попыток).</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Сохраняйте массив объектов в localStorage. При новом рекорде добавляйте его в таблицу и сортируйте.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level hard">⭐⭐⭐ Сложное</div>
+                    <h3>Обратный отсчёт времени</h3>
+                    <p>Добавьте таймер — даётся 60 секунд на угадывание. Если время вышло — игра заканчивается.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Используйте <code>setInterval()</code> для отсчёта времени. Не забудьте очистить интервал при новой игре.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Живой пример полной игры -->
+        <section>
+            <h2>🎯 Полный пример готовой игры</h2>
+            <div class="demo-full-game">
+                <div class="game-preview">
+                    <div class="game-stats-preview">
+                        <div class="stat-preview">🎲 Диапазон: 1-100</div>
+                        <div class="stat-preview">📊 Счётчик попыток</div>
+                        <div class="stat-preview">🏆 Рекорды в памяти</div>
+                    </div>
+                    <div class="game-demo-preview">
+                        <div class="preview-message">🎮 Игра готова! Попробуйте выше в живой демо-версии</div>
+                        <div class="preview-input">
+                            <div class="preview-field"></div>
+                            <div class="preview-buttons">
+                                <span class="preview-btn preview-check">🔍 Проверить</span>
+                                <span class="preview-btn preview-reset">🔄 Новая игра</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="demo-note">💡 <strong>Попробуйте игру в разделе "Поиграй прямо сейчас" выше!</strong> Она уже работает и использует весь код, который мы разобрали.</p>
+            </div>
+        </section>
+
+        <!-- Кнопка возврата -->
+        <div style="text-align: center; margin: 40px 0 60px;">
+            <a href="index.html" class="btn btn-primary">← Вернуться к сравнению языков</a>
+            <a href="#intro" class="btn btn-outline" style="margin-left: 16px;">⬆ Наверх</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="python-history.html">История Python</a>
+            <a href="js-history.html">История JavaScript</a>
+            <a href="cpp-history.html">История C++</a>
+            <a href="msu.html">МГУ</a>
+            <a href="itmo.html">ИТМО</a>
+            <a href="hse.html">ВШЭ</a>
+            <a href="mipt.html">МФТИ</a>
+            <a href="urfu.html">УрФУ</a>
+            <a href="tip-calculator-python.html">Калькулятор чаевых</a>
+            <a href="guess-number-js.html">Угадай число</a>
+        </div>
+        <p>Урок по созданию игры «Угадай число» на JavaScript. Идеальный первый проект для начинающих веб-разработчиков.</p>
+        <p>© 2026 — Гид по выбору языка программирования. Проект создан для помощи начинающим разработчикам.</p>
+    </div>
+</footer>
+
+<script>
+    // Копирование кода для каждой вкладки
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const codeId = this.getAttribute('data-code');
+            const codeElement = document.getElementById(codeId);
+            const code = codeElement.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = this.textContent;
+                this.textContent = '✅ Скопировано!';
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            });
+        });
+    });
+    
+    // Переключение вкладок с кодом
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tab = this.getAttribute('data-tab');
+            
+            // Убираем активный класс у всех кнопок и панелей
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('active'));
+            
+            // Добавляем активный класс текущей кнопке и панели
+            this.classList.add('active');
+            document.getElementById(`${tab}-panel`).classList.add('active');
+        });
+    });
+    
+    // --- ИГРА ---
+    class GuessNumberGame {
+        constructor() {
+            this.secretNumber = null;
+            this.attempts = 0;
+            this.bestScore = localStorage.getItem('bestScore_guess') || null;
+            this.history = [];
+            this.isGameOver = false;
+            
+            this.initDOM();
+            this.newGame();
+            this.addEventListeners();
+            this.updateUI();
+        }
+        
+        initDOM() {
+            this.guessInput = document.getElementById('guessInput');
+            this.checkBtn = document.getElementById('checkBtn');
+            this.resetBtn = document.getElementById('resetBtn');
+            this.messageDiv = document.getElementById('gameMessage');
+            this.attemptsSpan = document.getElementById('attemptCount');
+            this.bestScoreSpan = document.getElementById('bestScore');
+            this.historyDiv = document.getElementById('historyList');
+            this.secretNumberSpan = document.getElementById('secretNumber');
+        }
+        
+        newGame() {
+            this.secretNumber = Math.floor(Math.random() * 100) + 1;
+            this.attempts = 0;
+            this.history = [];
+            this.isGameOver = false;
+            
+            if (this.guessInput) {
+                this.guessInput.disabled = false;
+                this.guessInput.value = '';
+                this.guessInput.focus();
+            }
+            if (this.checkBtn) this.checkBtn.disabled = false;
+            if (this.messageDiv) {
+                this.messageDiv.innerHTML = '🤔 Я загадал число от 1 до 100. Попробуй угадать!';
+            }
+            if (this.secretNumberSpan) this.secretNumberSpan.textContent = '???';
+            
+            this.updateUI();
+            this.updateHistory();
+        }
+        
+        checkGuess() {
+            if (this.isGameOver) {
+                if (this.messageDiv) {
+                    this.messageDiv.innerHTML = '🎮 Игра окончена! Нажми "Новая игра" чтобы продолжить.';
+                }
+                return;
+            }
+            
+            const guess = parseInt(this.guessInput.value);
+            
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                if (this.messageDiv) {
+                    this.messageDiv.innerHTML = '⚠️ Пожалуйста, введите число от 1 до 100!';
+                }
+                return;
+            }
+            
+            this.attempts++;
+            this.history.push(guess);
+            
+            if (guess === this.secretNumber) {
+                this.gameWin(guess);
+            } else if (guess < this.secretNumber) {
+                if (this.messageDiv) {
+                    this.messageDiv.innerHTML = `📈 ${guess} — слишком мало! Попробуй еще.`;
+                }
+            } else {
+                if (this.messageDiv) {
+                    this.messageDiv.innerHTML = `📉 ${guess} — слишком много! Попробуй еще.`;
+                }
+            }
+            
+            this.updateUI();
+            this.updateHistory();
+            this.guessInput.value = '';
+            this.guessInput.focus();
+        }
+        
+        gameWin(guess) {
+            this.isGameOver = true;
+            this.guessInput.disabled = true;
+            this.checkBtn.disabled = true;
+            if (this.secretNumberSpan) this.secretNumberSpan.textContent = this.secretNumber;
+            
+            if (!this.bestScore || this.attempts < this.bestScore) {
+                this.bestScore = this.attempts;
+                localStorage.setItem('bestScore_guess', this.bestScore);
+                if (this.messageDiv) {
+                    this.messageDiv.innerHTML = `🎉 ПОБЕДА! Ты угадал число ${this.secretNumber} за ${this.attempts} попыток! 🎉<br>🏆 НОВЫЙ РЕКОРД! 🏆`;
+                }
+            } else {
+                if (this.messageDiv) {
+                    this.messageDiv.innerHTML = `🎉 ПОБЕДА! Ты угадал число ${this.secretNumber} за ${this.attempts} попыток! 🎉`;
+                }
+            }
+            
+            this.updateUI();
+        }
+        
+        updateUI() {
+            if (this.attemptsSpan) this.attemptsSpan.textContent = this.attempts;
+            if (this.bestScoreSpan) this.bestScoreSpan.textContent = this.bestScore ? this.bestScore : '—';
+        }
+        
+        updateHistory() {
+            if (!this.historyDiv) return;
+            this.historyDiv.innerHTML = '';
+            this.history.forEach((guess, index) => {
+                const item = document.createElement('div');
+                item.className = 'history-item';
+                let emoji = '❓';
+                if (guess === this.secretNumber && this.isGameOver) {
+                    emoji = '✅';
+                } else if (guess < this.secretNumber) {
+                    emoji = '📈';
+                } else if (guess > this.secretNumber) {
+                    emoji = '📉';
+                }
+                item.textContent = `${emoji} Попытка ${index + 1}: ${guess}`;
+                this.historyDiv.appendChild(item);
+            });
+            this.historyDiv.scrollTop = this.historyDiv.scrollHeight;
+        }
+        
+        addEventListeners() {
+            if (this.checkBtn) {
+                this.checkBtn.addEventListener('click', () => this.checkGuess());
+            }
+            if (this.resetBtn) {
+                this.resetBtn.addEventListener('click', () => this.newGame());
+            }
+            if (this.guessInput) {
+                this.guessInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.checkGuess();
+                });
+            }
+        }
+    }
+    
+    // Запуск игры
+    document.addEventListener('DOMContentLoaded', () => {
+        new GuessNumberGame();
+    });
+    
+    // FAQ аккордеон (если есть)
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>

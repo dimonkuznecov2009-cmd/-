@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор чаевых на Python | Урок для начинающих</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tip-calculator-python.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <h1>🐍 Калькулятор чаевых на Python</h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#intro">Введение</a></li>
+                <li><a href="#code">Код</a></li>
+                <li><a href="#explanation">Объяснение</a></li>
+                <li><a href="#live">Попробовать</a></li>
+                <li><a href="#exercises">Задания</a></li>
+                <li><a href="index.html">← На главную</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Hero секция -->
+        <section class="hero" id="intro">
+            <span class="hero-badge" style="background: rgba(55, 118, 171, 0.2); color: #3776AB;">🎓 Первый проект для новичка</span>
+            <h1>Как сделать калькулятор чаевых<br>на Python</h1>
+            <p>Калькулятор чаевых — идеальный первый проект для начинающего программиста. Он учит работе с пользовательским вводом, математическим вычислениям, условиям и циклам. Мы разберём код шаг за шагом.</p>
+            <div class="hero-buttons">
+                <a href="#code" class="btn btn-primary" style="background: #3776AB;">📝 Посмотреть код</a>
+                <a href="#live" class="btn btn-outline">🎮 Попробовать онлайн</a>
+                <a href="#exercises" class="btn btn-outline">📚 Задания</a>
+            </div>
+        </section>
+
+        <!-- Что вы научитесь делать -->
+        <section>
+            <h2>📚 Что вы научитесь делать</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">⌨️</div>
+                    <h3>Работать с вводом</h3>
+                    <p>Использовать input() для получения данных от пользователя</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔢</div>
+                    <h3>Выполнять вычисления</h3>
+                    <p>Процент от числа, сложение, форматирование результата</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚠️</div>
+                    <h3>Обрабатывать ошибки</h3>
+                    <p>Проверять ввод с помощью try/except</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3>Использовать циклы</h3>
+                    <p>Повторять запрос, пока пользователь не введёт корректные данные</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">✅</div>
+                    <h3>Писать условия</h3>
+                    <p>if/elif/else для выбора процента чаевых</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Форматировать вывод</h3>
+                    <p>f-строки и форматирование чисел с двумя знаками после запятой</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Полный код программы -->
+        <section id="code">
+            <h2>📝 Полный код программы</h2>
+            <div class="code-block-wrapper">
+                <div class="code-header">
+                    <span class="code-title">📄 tip_calculator.py</span>
+                    <button class="copy-btn" id="copy-all-code">📋 Копировать весь код</button>
+                </div>
+                <div class="code-block python-code-block">
+                    <pre id="full-code"><code># Калькулятор чаевых на Python
+def calculate_tip():
+    print("=" * 40)
+    print("     КАЛЬКУЛЯТОР ЧАЕВЫХ")
+    print("=" * 40)
+    
+    # Ввод суммы счета с проверкой
+    while True:
+        try:
+            bill = float(input("Введите сумму счета (₽): "))
+            if bill <= 0:
+                print("Сумма должна быть положительной!")
+                continue
+            break
+        except ValueError:
+            print("Ошибка! Пожалуйста, введите число.")
+    
+    # Выбор процента чаевых
+    print("\nВыберите размер чаевых:")
+    print("1. 10% - Обычный")
+    print("2. 15% - Хороший")
+    print("3. 20% - Отличный")
+    print("4. Свой вариант")
+    
+    while True:
+        choice = input("\nВаш выбор (1-4): ")
+        
+        if choice == '1':
+            tip_percent = 10
+            break
+        elif choice == '2':
+            tip_percent = 15
+            break
+        elif choice == '3':
+            tip_percent = 20
+            break
+        elif choice == '4':
+            while True:
+                try:
+                    tip_percent = float(input("Введите свой процент (%): "))
+                    if tip_percent < 0:
+                        print("Процент не может быть отрицательным!")
+                        continue
+                    break
+                except ValueError:
+                    print("Пожалуйста, введите число!")
+            break
+        else:
+            print("Неверный выбор! Выберите 1, 2, 3 или 4.")
+    
+    # Расчёт чаевых и итоговой суммы
+    tip_amount = bill * tip_percent / 100
+    total = bill + tip_amount
+    
+    # Вывод результата
+    print("\n" + "=" * 40)
+    print("         РЕЗУЛЬТАТ")
+    print("=" * 40)
+    print(f"Сумма счета:      {bill:.2f} ₽")
+    print(f"Чаевые ({tip_percent}%): {tip_amount:.2f} ₽")
+    print(f"ИТОГО К ОПЛАТЕ:   {total:.2f} ₽")
+    print("=" * 40)
+    
+    # Дополнительно: разделение на гостей
+    split = input("\nРазделить счёт на несколько гостей? (да/нет): ").lower()
+    if split in ['да', 'lf', 'yes', 'y', 'д']:
+        while True:
+            try:
+                people = int(input("Количество гостей: "))
+                if people <= 0:
+                    print("Количество должно быть положительным!")
+                    continue
+                per_person = total / people
+                print(f"Каждый должен заплатить: {per_person:.2f} ₽")
+                break
+            except ValueError:
+                print("Пожалуйста, введите целое число!")
+    
+    print("\nСпасибо за использование калькулятора чаевых!")
+
+if __name__ == "__main__":
+    calculate_tip()</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Разбор кода по шагам -->
+        <section id="explanation">
+            <h2>🔍 Разбор кода шаг за шагом</h2>
+            
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    <h3>Определение функции</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>def calculate_tip():</code></pre>
+                    </div>
+                    <p>Мы создаём функцию <code>calculate_tip()</code>, которая содержит всю логику программы. Это позволяет легко запускать программу и использовать её в других проектах.</p>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <h3>Приветствие и ввод суммы счета</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>print("=" * 40)
+print("     КАЛЬКУЛЯТОР ЧАЕВЫХ")
+print("=" * 40)
+
+while True:
+    try:
+        bill = float(input("Введите сумму счета (₽): "))
+        if bill <= 0:
+            print("Сумма должна быть положительной!")
+            continue
+        break
+    except ValueError:
+        print("Ошибка! Пожалуйста, введите число.")</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>print("=" * 40)</code> — выводит линию из 40 символов "=" для красивого оформления</li>
+                        <li><code>while True</code> — бесконечный цикл, который повторяется, пока не будет введено корректное значение</li>
+                        <li><code>try/except</code> — перехватывает ошибку, если пользователь ввел не число</li>
+                        <li><code>float(input(...))</code> — преобразует введённую строку в число с плавающей точкой</li>
+                        <li><code>if bill &lt;= 0</code> — проверяет, что сумма положительная</li>
+                        <li><code>break</code> — выходит из цикла, когда всё корректно</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <h3>Выбор процента чаевых</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>print("\nВыберите размер чаевых:")
+print("1. 10% - Обычный")
+print("2. 15% - Хороший")
+print("3. 20% - Отличный")
+print("4. Свой вариант")
+
+while True:
+    choice = input("\nВаш выбор (1-4): ")
+    
+    if choice == '1':
+        tip_percent = 10
+        break
+    elif choice == '2':
+        tip_percent = 15
+        break
+    elif choice == '3':
+        tip_percent = 20
+        break
+    elif choice == '4':
+        while True:
+            try:
+                tip_percent = float(input("Введите свой процент (%): "))
+                if tip_percent < 0:
+                    print("Процент не может быть отрицательным!")
+                    continue
+                break
+            except ValueError:
+                print("Пожалуйста, введите число!")
+        break
+    else:
+        print("Неверный выбор! Выберите 1, 2, 3 или 4.")</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li>Выводится меню с вариантами выбора</li>
+                        <li><code>while True</code> — цикл повторяется, пока пользователь не сделает корректный выбор</li>
+                        <li><code>if/elif/else</code> — проверяет, какой вариант выбран</li>
+                        <li>Для варианта 4 используется вложенный цикл для ввода своего процента</li>
+                        <li>Проверяется, что процент не отрицательный</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <h3>Расчёт чаевых и итога</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>tip_amount = bill * tip_percent / 100
+total = bill + tip_amount</code></pre>
+                    </div>
+                    <p><strong>Формулы:</strong></p>
+                    <ul>
+                        <li>Сумма чаевых = сумма счета × процент чаевых ÷ 100</li>
+                        <li>Итоговая сумма = сумма счета + чаевые</li>
+                    </ul>
+                    <p>Пример: счёт 1250 ₽, чаевые 15% → чаевые = 1250 × 15 ÷ 100 = 187.5 ₽, итог = 1250 + 187.5 = 1437.5 ₽</p>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    <h3>Вывод результата</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>print("\n" + "=" * 40)
+print("         РЕЗУЛЬТАТ")
+print("=" * 40)
+print(f"Сумма счета:      {bill:.2f} ₽")
+print(f"Чаевые ({tip_percent}%): {tip_amount:.2f} ₽")
+print(f"ИТОГО К ОПЛАТЕ:   {total:.2f} ₽")
+print("=" * 40)</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>f"..."</code> — f-строки позволяют вставлять значения переменных прямо в текст</li>
+                        <li><code>{bill:.2f}</code> — форматирование числа с двумя знаками после запятой</li>
+                        <li><code>\n</code> — символ новой строки для отступа перед результатом</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">6</span>
+                    <h3>Разделение на гостей</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>split = input("\nРазделить счёт на несколько гостей? (да/нет): ").lower()
+if split in ['да', 'lf', 'yes', 'y', 'д']:
+    while True:
+        try:
+            people = int(input("Количество гостей: "))
+            if people <= 0:
+                print("Количество должно быть положительным!")
+                continue
+            per_person = total / people
+            print(f"Каждый должен заплатить: {per_person:.2f} ₽")
+            break
+        except ValueError:
+            print("Пожалуйста, введите целое число!")</code></pre>
+                    </div>
+                    <p><strong>Что здесь происходит:</strong></p>
+                    <ul>
+                        <li><code>.lower()</code> — преобразует введённый ответ в нижний регистр</li>
+                        <li><code>split in [...]</code> — проверяет, ввёл ли пользователь "да" или его аналоги</li>
+                        <li><code>int(input(...))</code> — преобразует ввод в целое число</li>
+                        <li>Количество гостей не может быть отрицательным или нулём</li>
+                        <li>Сумма на человека = итоговая сумма ÷ количество гостей</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-title">
+                    <span class="step-number">7</span>
+                    <h3>Запуск программы</h3>
+                </div>
+                <div class="step-content">
+                    <div class="step-code">
+                        <pre><code>if __name__ == "__main__":
+    calculate_tip()</code></pre>
+                    </div>
+                    <p>Эта конструкция проверяет, запущен ли файл напрямую (а не импортирован как модуль). Если да — вызывается функция <code>calculate_tip()</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Интерактивная демо-версия -->
+        <section id="live">
+            <h2>🎮 Попробовать онлайн</h2>
+            <p class="section-subtitle">Введите данные и нажмите «Рассчитать» — программа работает прямо в браузере!</p>
+            
+            <div class="live-demo">
+                <div class="demo-form">
+                    <div class="demo-field">
+                        <label>💰 Сумма счета (₽):</label>
+                        <input type="number" id="live-bill" step="0.01" value="1250" placeholder="Например: 1250">
+                    </div>
+                    
+                    <div class="demo-field">
+                        <label>💵 Чаевые:</label>
+                        <div class="tip-buttons">
+                            <button class="tip-btn" data-percent="10">10%</button>
+                            <button class="tip-btn" data-percent="15" style="background: #3776AB; color: white;">15%</button>
+                            <button class="tip-btn" data-percent="20">20%</button>
+                            <button class="tip-btn" data-percent="custom">Свой %</button>
+                        </div>
+                        <input type="number" id="live-custom-percent" step="1" placeholder="Ваш процент" style="display: none; margin-top: 10px;">
+                    </div>
+                    
+                    <div class="demo-field">
+                        <label>👥 Количество гостей (для разделения):</label>
+                        <input type="number" id="live-people" value="1" min="1" step="1">
+                    </div>
+                    
+                    <button id="live-calculate-btn" class="demo-btn" style="background: #3776AB;">🧮 Рассчитать</button>
+                    
+                    <div id="live-result" class="demo-result">
+                        <div class="result-line">Сумма счета: <strong>1 250.00 ₽</strong></div>
+                        <div class="result-line">Чаевые (15%): <strong>187.50 ₽</strong></div>
+                        <div class="result-line total-line">ИТОГО: <strong>1 437.50 ₽</strong></div>
+                    </div>
+                </div>
+                
+                <div class="demo-note">
+                    <p>💡 <strong>Этот калькулятор работает на JavaScript</strong> (так как в браузере нельзя запустить Python), но он полностью повторяет логику Python-версии. Скачав код Python ниже, вы сможете запустить его на своём компьютере.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Как запустить на своем компьютере -->
+        <section>
+            <h2>▶️ Как запустить программу на своём компьютере</h2>
+            <div class="how-to-run">
+                <div class="run-step">
+                    <div class="run-step-num">1</div>
+                    <div class="run-step-content">
+                        <h3>Установите Python</h3>
+                        <p>Скачайте Python с официального сайта <a href="https://python.org" target="_blank">python.org</a> (последняя версия 3.x). При установке ОБЯЗАТЕЛЬНО отметьте галочку "Add Python to PATH".</p>
+                    </div>
+                </div>
+                <div class="run-step">
+                    <div class="run-step-num">2</div>
+                    <div class="run-step-content">
+                        <h3>Создайте файл</h3>
+                        <p>Скопируйте код из раздела выше. Откройте любой текстовый редактор (Блокнот, VS Code, PyCharm) и вставьте код. Сохраните файл с именем <code>tip_calculator.py</code>.</p>
+                    </div>
+                </div>
+                <div class="run-step">
+                    <div class="run-step-num">3</div>
+                    <div class="run-step-content">
+                        <h3>Запустите программу</h3>
+                        <p>Откройте терминал/командную строку в папке с файлом и выполните команду:</p>
+                        <div class="terminal-command">python tip_calculator.py</div>
+                        <p>Или просто дважды кликните по файлу (если Python настроен правильно).</p>
+                    </div>
+                </div>
+                <div class="run-step">
+                    <div class="run-step-num">4</div>
+                    <div class="run-step-content">
+                        <h3>Альтернатива — онлайн-компилятор</h3>
+                        <p>Если не хотите устанавливать Python, используйте бесплатные онлайн-компиляторы:</p>
+                        <ul>
+                            <li><a href="https://replit.com" target="_blank">Replit</a> — создайте новый repl и выберите Python</li>
+                            <li><a href="https://onlinegdb.com" target="_blank">OnlineGDB</a> — простой онлайн-компилятор</li>
+                            <li><a href="https://pythontutor.com" target="_blank">Python Tutor</a> — визуализация выполнения кода</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Задания для самостоятельной работы -->
+        <section id="exercises">
+            <h2>📚 Задания для самостоятельной работы</h2>
+            <p class="section-subtitle">Попробуйте улучшить программу самостоятельно</p>
+            
+            <div class="exercises-grid">
+                <div class="exercise-card">
+                    <div class="exercise-level easy">⭐ Лёгкое</div>
+                    <h3>Округление до целых</h3>
+                    <p>Измените программу так, чтобы результат округлялся до целых рублей (без копеек). Используйте функцию <code>round()</code>.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <code>round(total)</code> или <code>int(total + 0.5)</code>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level easy">⭐ Лёгкое</div>
+                    <h3>Дополнительные проценты</h3>
+                    <p>Добавьте в меню ещё один вариант — 25%.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Добавьте ещё один print() и elif choice == '5'</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level medium">⭐⭐ Среднее</div>
+                    <h3>Скидка</h3>
+                    <p>Добавьте возможность ввести скидку (в процентах). Сначала применяется скидка, потом считаются чаевые.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>После ввода суммы счета спросите о скидке. Сумма со скидкой = счёт × (100 - скидка%) ÷ 100</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level medium">⭐⭐ Среднее</div>
+                    <h3>Оценка сервиса</h3>
+                    <p>Добавьте вопрос "Как вы оцениваете обслуживание? (1-5)" и на основе оценки автоматически предлагайте процент чаевых: 1→5%, 2→10%, 3→15%, 4→20%, 5→25%.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Используйте if/elif для преобразования оценки в процент.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level hard">⭐⭐⭐ Сложное</div>
+                    <h3>Сохранение истории</h3>
+                    <p>Добавьте сохранение всех расчётов в файл <code>history.txt</code>. Каждый расчёт должен содержать дату, время, сумму счета, процент чаевых и итог.</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>Используйте модули <code>datetime</code> и <code>open()</code> для записи в файл.</p>
+                    </details>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-level hard">⭐⭐⭐ Сложное</div>
+                    <h3>Графический интерфейс</h3>
+                    <p>Создайте графическую версию калькулятора с помощью библиотеки Tkinter (встроена в Python).</p>
+                    <details>
+                        <summary>Подсказка</summary>
+                        <p>from tkinter import * — создайте окно, поля ввода, кнопки и метки для вывода результата.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Часто задаваемые вопросы -->
+        <section>
+            <h2>❓ Часто задаваемые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Почему программа не запускается?</div>
+                    <div class="faq-answer">Проверьте: 1) Установлен ли Python. 2) Правильно ли сохранено расширение .py. 3) Нет ли ошибок в коде (например, пропущена скобка). 4) Попробуйте запустить через терминал.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Что значит .2f в f-строке?</div>
+                    <div class="faq-answer">Это формат вывода числа с плавающей точкой: .2f означает "два знака после запятой". Например, 1250.5555 → 1250.56.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Зачем нужен while True и break?</div>
+                    <div class="faq-answer">While True создаёт бесконечный цикл. Break выходит из него, когда условие выполнено. Это нужно, чтобы повторять запрос до тех пор, пока пользователь не введёт корректные данные.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Как добавить новые валюты?</div>
+                    <div class="faq-answer">Добавьте переменную для валюты и используйте её в print(). Например: <code>currency = input("Валюта (₽/$/€): ")</code> и затем <code>print(f"... {total:.2f} {currency}")</code>.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Кнопка возврата -->
+        <div style="text-align: center; margin: 40px 0 60px;">
+            <a href="index.html" class="btn btn-primary">← Вернуться к сравнению языков</a>
+            <a href="#intro" class="btn btn-outline" style="margin-left: 16px;">⬆ Наверх</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="python-history.html">История Python</a>
+            <a href="js-history.html">История JavaScript</a>
+            <a href="cpp-history.html">История C++</a>
+            <a href="msu.html">МГУ</a>
+            <a href="itmo.html">ИТМО</a>
+            <a href="hse.html">ВШЭ</a>
+            <a href="mipt.html">МФТИ</a>
+            <a href="urfu.html">УрФУ</a>
+            <a href="tip-calculator-python.html">Калькулятор чаевых на Python</a>
+        </div>
+        <p>Урок по созданию калькулятора чаевых на Python. Первый проект для начинающих программистов.</p>
+        <p>© 2026 — Гид по выбору языка программирования. Проект создан для помощи начинающим разработчикам.</p>
+    </div>
+</footer>
+
+<script>
+    // Копирование всего кода
+    document.getElementById('copy-all-code').addEventListener('click', function() {
+        const codeElement = document.getElementById('full-code');
+        const code = codeElement.textContent;
+        
+        navigator.clipboard.writeText(code).then(() => {
+            const originalText = this.textContent;
+            this.textContent = '✅ Скопировано!';
+            setTimeout(() => {
+                this.textContent = originalText;
+            }, 2000);
+        });
+    });
+    
+    // Живой калькулятор
+    let currentTipPercent = 15;
+    
+    function updateLiveCalculator() {
+        const bill = parseFloat(document.getElementById('live-bill').value);
+        let percent = currentTipPercent;
+        const customPercent = parseFloat(document.getElementById('live-custom-percent').value);
+        const people = parseInt(document.getElementById('live-people').value);
+        const resultDiv = document.getElementById('live-result');
+        
+        // Проверка на свой процент
+        if (document.getElementById('live-custom-percent').style.display === 'flex' && !isNaN(customPercent)) {
+            percent = customPercent;
+        }
+        
+        // Валидация
+        if (isNaN(bill) || bill <= 0) {
+            resultDiv.innerHTML = '<div class="result-error">❌ Пожалуйста, введите корректную сумму счета</div>';
+            return;
+        }
+        
+        if (isNaN(percent) || percent < 0) {
+            resultDiv.innerHTML = '<div class="result-error">❌ Пожалуйста, введите корректный процент</div>';
+            return;
+        }
+        
+        // Расчёты
+        const tip = bill * percent / 100;
+        const total = bill + tip;
+        const perPerson = people > 1 ? total / people : null;
+        
+        // Форматирование чисел
+        const format = (num) => num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        
+        let html = `
+            <div class="result-line">Сумма счета: <strong>${format(bill)} ₽</strong></div>
+            <div class="result-line">Чаевые (${percent}%): <strong>${format(tip)} ₽</strong></div>
+            <div class="result-line total-line">ИТОГО: <strong>${format(total)} ₽</strong></div>
+        `;
+        
+        if (perPerson) {
+            html += `<div class="result-line">Каждый гость платит: <strong>${format(perPerson)} ₽</strong></div>`;
+        }
+        
+        resultDiv.innerHTML = html;
+    }
+    
+    // Обработчики кнопок процентов
+    document.querySelectorAll('.tip-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const percent = this.getAttribute('data-percent');
+            const customInput = document.getElementById('live-custom-percent');
+            
+            // Сброс стилей
+            document.querySelectorAll('.tip-btn').forEach(b => {
+                b.style.background = '';
+                b.style.color = '';
+            });
+            
+            if (percent === 'custom') {
+                customInput.style.display = 'block';
+                this.style.background = '#3776AB';
+                this.style.color = 'white';
+                customInput.focus();
+            } else {
+                customInput.style.display = 'none';
+                currentTipPercent = parseInt(percent);
+                this.style.background = '#3776AB';
+                this.style.color = 'white';
+                updateLiveCalculator();
+            }
+        });
+    });
+    
+    // Обработчики ввода
+    document.getElementById('live-custom-percent').addEventListener('input', updateLiveCalculator);
+    document.getElementById('live-bill').addEventListener('input', updateLiveCalculator);
+    document.getElementById('live-people').addEventListener('input', updateLiveCalculator);
+    document.getElementById('live-calculate-btn').addEventListener('click', updateLiveCalculator);
+    
+    // FAQ аккордеон
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+    
+    // Инициализация калькулятора
+    updateLiveCalculator();
+</script>
+</body>
+</html>
